@@ -1,6 +1,10 @@
 import json
 import os
+from dotenv import load_dotenv
 from modules import InterviewConductor, InterviewScorer
+
+# Load environment variables from .env file securely
+load_dotenv()
 
 # Mock profiles based on PDF
 icp_a = {
@@ -101,8 +105,8 @@ def run_demo(icp_profile, mock_answers, hiring_bar, candidate_name="Candidate"):
     print(json.dumps(score_report, indent=2, ensure_ascii=False))
 
 if __name__ == "__main__":
-    if not os.environ.get("ANTHROPIC_API_KEY"):
-        print("WARNING: ANTHROPIC_API_KEY environment variable is not set. Please set it before running.")
+    if not os.environ.get("OPENROUTER_API_KEY"):
+        print("WARNING: OPENROUTER_API_KEY environment variable is not set. Please set it in your .env file or environment before running.")
     else:
         # Run ICP-A (High wage, English)
         run_demo(icp_a, mock_answers_a, hiring_bar_a, "Riya Sharma")

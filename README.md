@@ -12,24 +12,24 @@ This repository contains the Proof of Concept (POC) for the AI Engineering Chall
 - Python 3.8+
 - Anthropic API Key (The challenge requires `claude-sonnet-4-20250514`. This model string is hardcoded inside `modules.py` as requested).
 
-```bash
-pip install anthropic
-```
+## Setup & Run (Under 2 Minutes)
 
-### Running the Demo
-1. Set your Anthropic API key as an environment variable:
-```bash
-# On Windows PowerShell
-$env:ANTHROPIC_API_KEY="your-api-key"
+1. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-# On Linux/Mac
-export ANTHROPIC_API_KEY="your-api-key"
-```
+2. **Set your API Key:**
+   Create a `.env` file in the root directory and add your OpenRouter API key:
+   ```
+   OPENROUTER_API_KEY=sk-or-your-key-here
+   ```
+   *(Alternatively, export it in your terminal)*
 
-2. Run the demo script:
-```bash
-python demo.py
-```
+3. **Run the Demonstration:**
+   ```bash
+   python demo.py
+   ```
 
 ### Architecture Highlights
 - **Module A (Conductor)**: Takes in context and previous QA pairs to dynamically output the next question with varying difficulty and question type (technical, behavioral, follow_up). It strictly outputs JSON.
