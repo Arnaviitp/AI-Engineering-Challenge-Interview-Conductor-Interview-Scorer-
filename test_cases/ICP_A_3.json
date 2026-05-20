@@ -1,0 +1,72 @@
+{
+  "profile": {
+    "icp_type": "high_wage",
+    "language": "en",
+    "target_role": "Frontend Developer",
+    "round_type": "technical",
+    "company_tier": "mid"
+  },
+  "hiring_bar": {
+    "communication": 70,
+    "technical": 70,
+    "problem_solving": 70,
+    "behavioral": 70,
+    "delivery": 70
+  },
+  "turns": [
+    {
+      "agent_question_data": {
+        "next_question": "Can you walk me through how you would approach building a responsive navigation component from scratch? What are the key considerations you'd keep in mind?",
+        "question_type": "technical",
+        "difficulty_level": 3,
+        "reasoning": "Since this is the start of the technical round with no previous answers, I'm beginning with a practical frontend question that allows the candidate to demonstrate their understanding of responsive design, component architecture, and CSS skills - all fundamental for a mid-tier frontend developer role."
+      },
+      "candidate_answer": "I am comfortable with React and Tailwind CSS."
+    },
+    {
+      "agent_question_data": {
+        "next_question": "Great! Since you're comfortable with React and Tailwind CSS, let's dive deeper. Can you show me how you would implement the mobile hamburger menu functionality for that navigation component? Walk me through the React state management and the specific Tailwind classes you'd use for the animations.",
+        "question_type": "technical",
+        "difficulty_level": 3,
+        "reasoning": "Because the candidate mentioned they are comfortable with React and Tailwind CSS but gave a very brief answer without demonstrating actual knowledge, I am asking a more specific technical question that requires them to show concrete implementation details with both technologies to verify their claimed comfort level and assess their practical skills."
+      },
+      "candidate_answer": "I tried learning Redux once but it was confusing, so I just use context API."
+    },
+    {
+      "agent_question_data": {
+        "next_question": "That's perfectly fine - Context API is a great choice for many use cases! Can you walk me through how you would set up a Context to manage the mobile menu's open/closed state? Show me the basic structure of your context provider and how you'd consume it in your navigation component.",
+        "question_type": "technical",
+        "difficulty_level": 2,
+        "reasoning": "Because the candidate mentioned they find Redux confusing but use Context API, I'm asking a simpler follow-up question to assess their actual understanding of Context API implementation. This will help gauge their React state management skills without intimidating them with Redux complexity they've already indicated they struggle with."
+      },
+      "candidate_answer": "I can build standard layouts but complex animations are hard for me."
+    }
+  ],
+  "score_report": {
+    "overall_score": 25,
+    "scores_per_axis": {
+      "communication": 30,
+      "technical": 20,
+      "problem_solving": 15,
+      "behavioral": 35,
+      "delivery": 25
+    },
+    "gap_vs_bar": {
+      "communication": -40,
+      "technical": -50,
+      "problem_solving": -55,
+      "behavioral": -35,
+      "delivery": -45
+    },
+    "weak_moment": {
+      "timestamp_approx": "Turn 3",
+      "quote": "I can build standard layouts but complex animations are hard for me.",
+      "why_it_hurt": "Candidate avoided answering the specific technical question about Context API implementation and instead deflected to discussing limitations with animations, showing inability to engage with the actual problem"
+    },
+    "strong_moment": {
+      "quote": "I am comfortable with React and Tailwind CSS.",
+      "why_it_helped": "Shows familiarity with relevant modern frontend technologies"
+    },
+    "next_action": "Practice explaining technical concepts step-by-step by walking through simple React component implementations out loud, focusing on state management and component structure"
+  }
+}

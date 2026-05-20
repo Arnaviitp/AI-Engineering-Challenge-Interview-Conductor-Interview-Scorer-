@@ -1,0 +1,72 @@
+{
+  "profile": {
+    "icp_type": "high_wage",
+    "language": "en",
+    "target_role": "Data Scientist",
+    "round_type": "screening",
+    "company_tier": "enterprise"
+  },
+  "hiring_bar": {
+    "communication": 70,
+    "technical": 80,
+    "problem_solving": 75,
+    "behavioral": 60,
+    "delivery": 60
+  },
+  "turns": [
+    {
+      "agent_question_data": {
+        "next_question": "Tell me about your background and what drew you to data science. What's been your most impactful project so far?",
+        "question_type": "behavioral",
+        "difficulty_level": 2,
+        "reasoning": "Since this is the start of the interview with no previous answers, I'm beginning with an open-ended question to understand the candidate's background, motivation, and experience level. This will help gauge their communication skills and provide context for follow-up technical questions based on their specific experience."
+      },
+      "candidate_answer": "I just copy pandas code from StackOverflow mostly."
+    },
+    {
+      "agent_question_data": {
+        "next_question": "I understand you're familiar with pandas from StackOverflow. Let me ask you something basic - if you have a pandas DataFrame with missing values, what are two different ways you could handle those missing values?",
+        "question_type": "technical",
+        "difficulty_level": 2,
+        "reasoning": "Because the candidate answered that they 'just copy pandas code from StackOverflow mostly', this reveals a significant gap in foundational understanding and suggests they may lack proper data science fundamentals. I am asking a basic pandas question about handling missing values to assess if they have even elementary knowledge of data preprocessing, which is essential for any data science role."
+      },
+      "candidate_answer": "I don't really understand how machine learning works under the hood, I just import sklearn."
+    },
+    {
+      "agent_question_data": {
+        "next_question": "I see you mentioned using sklearn without understanding the underlying mechanics. Let's start with something fundamental - can you explain what supervised learning is and give me an example of when you might use it?",
+        "question_type": "technical",
+        "difficulty_level": 2,
+        "reasoning": "Because the candidate admitted they don't understand how machine learning works under the hood and just import sklearn, I am asking a very basic conceptual question about supervised learning to assess their foundational understanding of ML concepts before diving deeper into technical implementation details."
+      },
+      "candidate_answer": "When there's a bug, I restart the kernel until it runs."
+    }
+  ],
+  "score_report": {
+    "overall_score": 5,
+    "scores_per_axis": {
+      "communication": 10,
+      "technical": 5,
+      "problem_solving": 5,
+      "behavioral": 5,
+      "delivery": 5
+    },
+    "gap_vs_bar": {
+      "communication": -60,
+      "technical": -75,
+      "problem_solving": -70,
+      "behavioral": -55,
+      "delivery": -55
+    },
+    "weak_moment": {
+      "timestamp_approx": "Turn 3",
+      "quote": "When there's a bug, I restart the kernel until it runs.",
+      "why_it_hurt": "Shows complete lack of debugging skills and systematic problem-solving approach, relying on random trial instead of understanding"
+    },
+    "strong_moment": {
+      "quote": "I just copy pandas code from StackOverflow mostly.",
+      "why_it_helped": "At least demonstrates honesty about current skill level, though this is minimal"
+    },
+    "next_action": "Focus on fundamental data science concepts starting with basic statistics and supervised vs unsupervised learning definitions"
+  }
+}

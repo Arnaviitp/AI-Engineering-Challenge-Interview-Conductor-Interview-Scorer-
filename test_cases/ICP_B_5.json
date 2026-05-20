@@ -1,0 +1,72 @@
+{
+  "profile": {
+    "icp_type": "low_wage",
+    "language": "hi",
+    "target_role": "Office Assistant",
+    "round_type": "screening",
+    "company_tier": "mid"
+  },
+  "hiring_bar": {
+    "communication": 55,
+    "technical": 40,
+    "problem_solving": 50,
+    "behavioral": 75,
+    "delivery": 60
+  },
+  "turns": [
+    {
+      "agent_question_data": {
+        "next_question": "Namaste! Aapka interview shuru karte hain. Pehle aap apne baare mein thoda batayiye - aapka naam, education aur kya experience hai office work mein?",
+        "question_type": "behavioral",
+        "difficulty_level": 1,
+        "reasoning": "Since this is the first question with no previous answers in the transcript, I'm starting with a basic introductory question to understand the candidate's background, education and any office experience they may have. This helps establish rapport and gives me baseline information to adapt future questions."
+      },
+      "candidate_answer": "Office ke chote mote kaam main sab kar leta hu, file sambhalna aur chai lana."
+    },
+    {
+      "agent_question_data": {
+        "next_question": "Achha, aapne file sambhalne ka kaam kiya hai. Batayiye ki agar aapko 100 files arrange karni ho date ke hisaab se, toh aap kaise karenge? Koi system follow karte hain?",
+        "question_type": "technical",
+        "difficulty_level": 2,
+        "reasoning": "Because the candidate mentioned they can handle files and small office tasks, I am asking a specific follow-up about file organization to test their actual office administration skills and see if they have any systematic approach to basic office tasks."
+      },
+      "candidate_answer": "English bilkul nahi aati mujhe, isliye problem hoti hai kabhi kabhi."
+    },
+    {
+      "agent_question_data": {
+        "next_question": "Koi baat nahi, English nahi aati toh Hindi mein kaam kar sakte hain. Main aapko simple sawaal puchta hun - agar aapke paas koi important file hai aur boss ne kaha ki use safe jagah rakhna hai, toh aap kahan rakhenge aur kaise yaad rakhenge ki woh kahan hai?",
+        "question_type": "technical",
+        "difficulty_level": 2,
+        "reasoning": "Because the candidate mentioned they don't know English and have problems sometimes, I am asking a simpler, Hindi-focused question about basic file management to assess their core organizational skills without language barriers and see if they can handle basic office responsibilities."
+      },
+      "candidate_answer": "Par main bohot imandaar hu, jo kaam doge main karunga lagan se."
+    }
+  ],
+  "score_report": {
+    "overall_score": 25,
+    "scores_per_axis": {
+      "communication": 20,
+      "technical": 15,
+      "problem_solving": 10,
+      "behavioral": 65,
+      "delivery": 15
+    },
+    "gap_vs_bar": {
+      "communication": -35,
+      "technical": -25,
+      "problem_solving": -40,
+      "behavioral": -10,
+      "delivery": -45
+    },
+    "weak_moment": {
+      "timestamp_approx": "Turn 2",
+      "quote": "English bilkul nahi aati mujhe, isliye problem hoti hai kabhi kabhi.",
+      "why_it_hurt": "Completely avoided answering the file organization question and focused on language barrier instead of demonstrating problem-solving ability"
+    },
+    "strong_moment": {
+      "quote": "main bohot imandaar hu, jo kaam doge main karunga lagan se",
+      "why_it_helped": "Shows honesty, integrity and willingness to work hard with dedication"
+    },
+    "next_action": "Practice answering basic office task questions directly without deflecting to unrelated topics"
+  }
+}

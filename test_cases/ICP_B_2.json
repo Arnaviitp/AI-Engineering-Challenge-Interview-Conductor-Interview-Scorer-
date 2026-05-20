@@ -1,0 +1,72 @@
+{
+  "profile": {
+    "icp_type": "low_wage",
+    "language": "hi",
+    "target_role": "Delivery Partner",
+    "round_type": "screening",
+    "company_tier": "startup"
+  },
+  "hiring_bar": {
+    "communication": 50,
+    "technical": 30,
+    "problem_solving": 40,
+    "behavioral": 60,
+    "delivery": 50
+  },
+  "turns": [
+    {
+      "agent_question_data": {
+        "next_question": "नमस्ते! आपका दिन कैसा जा रहा है? पहले बताइए कि आप डिलीवरी पार्टनर की जॉब क्यों करना चाहते हैं?",
+        "question_type": "behavioral",
+        "difficulty_level": 1,
+        "reasoning": "Since this is the first question with no previous transcript, I'm starting with a warm, conversational opening in colloquial Hindi to make the candidate comfortable, followed by a basic motivation question appropriate for a screening round for a delivery partner role at a startup"
+      },
+      "candidate_answer": "Mujhe map dekhna nahi aata theek se, baar baar rasta bhool jata hu."
+    },
+    {
+      "agent_question_data": {
+        "next_question": "अरे कोई बात नहीं! GPS और मैप तो सीखने वाली चीज़ है। आपके पास कोई स्मार्टफोन है? Google Maps का इस्तेमाल किया है कभी?",
+        "question_type": "follow_up",
+        "difficulty_level": 2,
+        "reasoning": "Because the candidate mentioned they don't know how to read maps well and get lost frequently, which is a critical skill gap for delivery work, I am asking about their smartphone and GPS usage to understand if they can learn digital navigation tools and assess their basic tech comfort level for this role."
+      },
+      "candidate_answer": "Agar customer phone nahi uthata toh main parcel wapas le aata hu bina wait kiye."
+    },
+    {
+      "agent_question_data": {
+        "next_question": "अरे भाई, ये तो गलत है! डिलीवरी का काम में धैर्य बहुत ज़रूरी है। अगर customer phone नहीं उठाए तो आप क्या करेंगे? कम से कम कितनी देर wait करना चाहिए?",
+        "question_type": "behavioral",
+        "difficulty_level": 2,
+        "reasoning": "Because the candidate answered that they would return the parcel immediately without waiting if customer doesn't pick up phone, I am asking this follow-up to test their understanding of proper delivery protocols and patience, which are critical for delivery partner role"
+      },
+      "candidate_answer": "Main jaldi kaam chhod deta hu kyuki mujhe gussa jaldi aata hai."
+    }
+  ],
+  "score_report": {
+    "overall_score": 15,
+    "scores_per_axis": {
+      "communication": 25,
+      "technical": 10,
+      "problem_solving": 5,
+      "behavioral": 10,
+      "delivery": 15
+    },
+    "gap_vs_bar": {
+      "communication": -25,
+      "technical": -20,
+      "problem_solving": -35,
+      "behavioral": -50,
+      "delivery": -35
+    },
+    "weak_moment": {
+      "timestamp_approx": "Turn 3",
+      "quote": "Main jaldi kaam chhod deta hu kyuki mujhe gussa jaldi aata hai.",
+      "why_it_hurt": "Shows poor emotional control and tendency to quit jobs quickly, which are critical red flags for delivery work requiring patience and persistence"
+    },
+    "strong_moment": {
+      "quote": "Mujhe map dekhna nahi aata theek se, baar baar rasta bhool jata hu.",
+      "why_it_helped": "Shows honesty about limitations, though this is still concerning for a delivery role"
+    },
+    "next_action": "Conduct anger management and patience assessment before proceeding further in the hiring process"
+  }
+}

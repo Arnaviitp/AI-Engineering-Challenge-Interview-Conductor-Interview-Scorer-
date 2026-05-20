@@ -1,0 +1,72 @@
+{
+  "profile": {
+    "icp_type": "low_wage",
+    "language": "hi",
+    "target_role": "Data Entry",
+    "round_type": "technical",
+    "company_tier": "enterprise"
+  },
+  "hiring_bar": {
+    "communication": 60,
+    "technical": 50,
+    "problem_solving": 50,
+    "behavioral": 60,
+    "delivery": 60
+  },
+  "turns": [
+    {
+      "agent_question_data": {
+        "next_question": "Namaste! Data entry के field में aapka experience kaisa hai? Kya aapne pehle kisi company mein data entry ka kaam kiya hai?",
+        "question_type": "behavioral",
+        "difficulty_level": 2,
+        "reasoning": "Since this is the first question with no previous transcript, I'm starting with an introductory behavioral question to understand the candidate's background and experience in data entry, which is appropriate for a low_wage candidate applying for a Data Entry role at an enterprise company."
+      },
+      "candidate_answer": "Mujhe thoda bahut computer chalana aata hai."
+    },
+    {
+      "agent_question_data": {
+        "next_question": "Achha, computer chalana aata hai matlab kya aapko MS Excel ya Google Sheets use karna aata hai? Data entry mein ye software bahut zaroori hote hain.",
+        "question_type": "technical",
+        "difficulty_level": 2,
+        "reasoning": "Because the candidate gave a very vague answer 'thoda bahut computer chalana aata hai' without mentioning specific skills or experience, I am asking about basic spreadsheet software (Excel/Google Sheets) to probe their actual technical competency level for data entry work, which requires knowledge of these fundamental tools."
+      },
+      "candidate_answer": "Excel me main copy paste kar leta hu par formulas nahi aate."
+    },
+    {
+      "agent_question_data": {
+        "next_question": "Theek hai, copy paste toh aata hai aapko. Excel mein agar main aapko kahu ki ek column mein numbers hain aur dusre column mein bhi numbers hain, aur mujhe dono ko jodna hai - toh aap kaise karenge? Matlab A1 mein 10 hai aur B1 mein 20 hai, toh C1 mein 30 kaise laayenge?",
+        "question_type": "technical",
+        "difficulty_level": 2,
+        "reasoning": "Because the candidate said they can do copy-paste in Excel but don't know formulas, I am asking a very basic formula question (simple addition) to test if they have any foundational knowledge of Excel calculations, which is essential for data entry work"
+      },
+      "candidate_answer": "Agar mujhe thodi training mile toh main jaldi seekh lunga."
+    }
+  ],
+  "score_report": {
+    "overall_score": 25,
+    "scores_per_axis": {
+      "communication": 40,
+      "technical": 20,
+      "problem_solving": 15,
+      "behavioral": 35,
+      "delivery": 30
+    },
+    "gap_vs_bar": {
+      "communication": -20,
+      "technical": -30,
+      "problem_solving": -35,
+      "behavioral": -25,
+      "delivery": -30
+    },
+    "weak_moment": {
+      "timestamp_approx": "Turn 3",
+      "quote": "Agar mujhe thodi training mile toh main jaldi seekh lunga.",
+      "why_it_hurt": "Avoided answering the direct technical question about basic Excel addition and deflected to training needs instead of demonstrating any problem-solving approach"
+    },
+    "strong_moment": {
+      "quote": "Excel me main copy paste kar leta hu par formulas nahi aate.",
+      "why_it_helped": "Honest about current skill level and clearly communicated what they can and cannot do"
+    },
+    "next_action": "Practice basic Excel operations including simple formulas like SUM and addition using = sign with cell references"
+  }
+}

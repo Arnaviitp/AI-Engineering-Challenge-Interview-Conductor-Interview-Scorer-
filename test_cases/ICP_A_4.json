@@ -1,0 +1,72 @@
+{
+  "profile": {
+    "icp_type": "high_wage",
+    "language": "en",
+    "target_role": "DevOps Engineer",
+    "round_type": "technical",
+    "company_tier": "startup"
+  },
+  "hiring_bar": {
+    "communication": 75,
+    "technical": 80,
+    "problem_solving": 75,
+    "behavioral": 70,
+    "delivery": 70
+  },
+  "turns": [
+    {
+      "agent_question_data": {
+        "next_question": "Can you walk me through how you would set up a CI/CD pipeline for a web application from scratch? What tools would you choose and why?",
+        "question_type": "technical",
+        "difficulty_level": 3,
+        "reasoning": "Since this is the first question with no previous answers, I'm starting with a foundational DevOps question that covers core concepts like CI/CD pipeline design. This allows me to assess their practical knowledge of DevOps tools and their ability to architect solutions, which is crucial for a startup environment where they'll need to make independent technical decisions."
+      },
+      "candidate_answer": "I know Linux commands very well and can manage servers."
+    },
+    {
+      "agent_question_data": {
+        "next_question": "I notice you mentioned Linux commands and server management, but my question was specifically about CI/CD pipelines. Let me ask more directly - have you worked with any CI/CD tools like Jenkins, GitLab CI, or GitHub Actions? If so, can you explain what a CI/CD pipeline actually does?",
+        "question_type": "follow_up",
+        "difficulty_level": 2,
+        "reasoning": "Because the candidate completely avoided answering the CI/CD pipeline question and instead gave a vague response about Linux commands, I need to probe whether they actually understand what CI/CD means. Their answer suggests a significant knowledge gap in this core DevOps concept, so I'm asking a simpler, more direct question to assess their basic understanding before moving forward."
+      },
+      "candidate_answer": "I have never used Kubernetes, I think it's too complicated for startups."
+    },
+    {
+      "agent_question_data": {
+        "next_question": "I notice you mentioned Kubernetes being too complicated for startups, but I haven't asked about Kubernetes yet. Let me step back to basics - can you tell me what CI/CD stands for and describe in simple terms what happens when a developer pushes code to a repository in a basic automated deployment setup?",
+        "question_type": "technical",
+        "difficulty_level": 2,
+        "reasoning": "The candidate has avoided answering two direct CI/CD questions and brought up Kubernetes unprompted, suggesting they may not understand the fundamental concepts. I need to test their basic understanding of CI/CD terminology and concepts before proceeding further, as they seem to be deflecting rather than addressing the core topic."
+      },
+      "candidate_answer": "I usually manually SSH into instances to deploy updates."
+    }
+  ],
+  "score_report": {
+    "overall_score": 15,
+    "scores_per_axis": {
+      "communication": 20,
+      "technical": 10,
+      "problem_solving": 15,
+      "behavioral": 20,
+      "delivery": 10
+    },
+    "gap_vs_bar": {
+      "communication": -55,
+      "technical": -70,
+      "problem_solving": -60,
+      "behavioral": -50,
+      "delivery": -60
+    },
+    "weak_moment": {
+      "timestamp_approx": "Turn 2",
+      "quote": "I have never used Kubernetes, I think it's too complicated for startups.",
+      "why_it_hurt": "Completely ignored the CI/CD question and brought up an unrelated topic, showing poor listening skills and lack of technical understanding"
+    },
+    "strong_moment": {
+      "quote": "I know Linux commands very well and can manage servers.",
+      "why_it_helped": "Demonstrated some basic technical knowledge relevant to DevOps, though not answering the specific question asked"
+    },
+    "next_action": "Practice explaining basic DevOps concepts like CI/CD pipelines, starting with definitions and simple examples before moving to tool-specific implementations"
+  }
+}

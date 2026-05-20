@@ -1,13 +1,16 @@
 import json
 import os
-import anthropic
+import requests
 from typing import List, Dict, Any
 
 class InterviewConductor:
     def __init__(self, api_key: str = None):
-        self.client = anthropic.Anthropic(api_key=api_key or os.environ.get("ANTHROPIC_API_KEY"))
+        self.api_key = api_key or os.environ.get("OPENROUTER_API_KEY")
         # Using the exact model string required by the challenge rules
         self.model = "claude-sonnet-4-20250514"
+        
+        # OpenRouter mapping for the required model string
+        self._or_model = "anthropic/claude-sonnet-4"
 
     def generate_next_question(
         self, 
@@ -31,32 +34,42 @@ Candidate Profile:
 - Company Tier: {company_tier}
 - Language: {language}
 
-Previous QA Pairs:
+Previous QA Pairs (Transcript so far):
 {json.dumps(previous_qa_pairs, indent=2, ensure_ascii=False)}
 
 Instructions:
-1. Adapt to the previous answer. If the candidate showed strength, ask a harder extension question or move to a new topic. If they showed weakness or gap, ask a simpler follow-up probing the same gap. If there are no previous answers, start with an appropriate introductory technical/behavioral question.
-2. The language of the question MUST be '{language}'. If 'hi', use natural conversational Hindi. If 'en', use English.
-3. You MUST return ONLY a JSON object with the following schema:
+1. ADAPTIVE LOGIC IS CRITICAL: You MUST explicitly respond to the candidate's last answer in the transcript. If they mentioned a specific tool, concept, or weakness, your next question MUST probe that specific thing. 
+2. If they showed strength, ask a harder extension question or move to a new topic. If they showed weakness or gap, ask a simpler follow-up probing the same gap. If there are no previous answers, start with an appropriate introductory technical/behavioral question.
+3. The `reasoning` field MUST explicitly state your adaptive logic (e.g., "Because the candidate answered [X], I am asking [Y] to test [Z]").
+4. The language of the question MUST be '{language}'. If 'hi', use colloquial, conversational Indian Hindi. DO NOT use formal textbook Hindi. DO NOT literally translate English idioms. If 'en', use English.
+5. You MUST return ONLY a JSON object with the following schema:
 {{
   "next_question": "the question text",
   "question_type": "technical" | "behavioral" | "follow_up",
   "difficulty_level": <integer from 1 to 5>,
-  "reasoning": "explanation of why this question was chosen based on the previous answer (or profile if first question)"
+  "reasoning": "explicit explanation of why this question was chosen based on the previous answer"
 }}
 
 Output ONLY the raw JSON without any markdown formatting, backticks, or extra text. Do not wrap the JSON in ```json blocks.
 """
-        response = self.client.messages.create(
-            model=self.model,
-            max_tokens=1000,
-            temperature=0.7,
-            messages=[
-                {"role": "user", "content": prompt}
-            ]
+        response = requests.post(
+            url="https://openrouter.ai/api/v1/chat/completions",
+            headers={
+                "Authorization": f"Bearer {self.api_key}",
+                "HTTP-Referer": "http://localhost:3000",
+                "X-Title": "AI Engineering Challenge"
+            },
+            json={
+                "model": self._or_model,
+                "messages": [{"role": "user", "content": prompt}],
+                "temperature": 0.7,
+                "max_tokens": 1500
+            }
         )
         
-        content = response.content[0].text.strip()
+        response.raise_for_status()
+        content = response.json()["choices"][0]["message"]["content"].strip()
+        
         # Clean up in case the LLM returned markdown despite instructions
         if content.startswith("```json"):
             content = content[7:]
@@ -74,9 +87,12 @@ Output ONLY the raw JSON without any markdown formatting, backticks, or extra te
 
 class InterviewScorer:
     def __init__(self, api_key: str = None):
-        self.client = anthropic.Anthropic(api_key=api_key or os.environ.get("ANTHROPIC_API_KEY"))
+        self.api_key = api_key or os.environ.get("OPENROUTER_API_KEY")
         # Using the exact model string required by the challenge rules
         self.model = "claude-sonnet-4-20250514"
+        
+        # OpenRouter mapping for the required model string
+        self._or_model = "anthropic/claude-sonnet-4"
 
     def score_interview(
         self, 
@@ -97,14 +113,15 @@ Interview Details:
 - Round Type: {round_type}
 - Hiring Bar: {json.dumps(hiring_bar)}
 
-Transcript:
+<transcript>
 {json.dumps(full_transcript, indent=2, ensure_ascii=False)}
+</transcript>
 
 Instructions:
-1. Provide an honest, objective evaluation.
+1. Provide an honest, objective evaluation based ONLY on the <transcript> provided above.
 2. Evaluate across 5 axes: communication, technical, problem_solving, behavioral, delivery. Score each from 0-100.
-3. Calculate gap_vs_bar for each axis: (user_score - hiring_bar). THIS MUST BE A NEGATIVE NUMBER IF THE SCORE IS BELOW THE BAR. Do not soften this.
-4. Extract exactly one weak_moment and one strong_moment. You MUST quote the EXACT text from the candidate's answers in the transcript. Invented quotes will result in failure.
+3. Calculate gap_vs_bar for each axis: (user_score - hiring_bar). If the user_score is less than the hiring_bar, this MUST be a strictly negative number (e.g., -15). Do not soften this.
+4. EXTRACT EXACT QUOTES: For `weak_moment` and `strong_moment`, you MUST extract an EXACT, verbatim substring directly from the text of the candidate's answers in the <transcript>. DO NOT paraphrase. DO NOT hallucinate. If you invent a quote, you fail.
 5. You MUST return ONLY a JSON object with the following schema:
 {{
   "overall_score": <int 0-100>,
@@ -136,16 +153,24 @@ Instructions:
 
 Output ONLY the raw JSON without any markdown formatting, backticks, or extra text. Do not wrap the JSON in ```json blocks.
 """
-        response = self.client.messages.create(
-            model=self.model,
-            max_tokens=1500,
-            temperature=0.3,
-            messages=[
-                {"role": "user", "content": prompt}
-            ]
+        response = requests.post(
+            url="https://openrouter.ai/api/v1/chat/completions",
+            headers={
+                "Authorization": f"Bearer {self.api_key}",
+                "HTTP-Referer": "http://localhost:3000",
+                "X-Title": "AI Engineering Challenge"
+            },
+            json={
+                "model": self._or_model,
+                "messages": [{"role": "user", "content": prompt}],
+                "temperature": 0.3,
+                "max_tokens": 1500
+            }
         )
         
-        content = response.content[0].text.strip()
+        response.raise_for_status()
+        content = response.json()["choices"][0]["message"]["content"].strip()
+        
         # Clean up in case the LLM returned markdown despite instructions
         if content.startswith("```json"):
             content = content[7:]

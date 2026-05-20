@@ -1,0 +1,72 @@
+{
+  "profile": {
+    "icp_type": "high_wage",
+    "language": "en",
+    "target_role": "Backend Engineer",
+    "round_type": "technical",
+    "company_tier": "startup"
+  },
+  "hiring_bar": {
+    "communication": 75,
+    "technical": 75,
+    "problem_solving": 75,
+    "behavioral": 70,
+    "delivery": 70
+  },
+  "turns": [
+    {
+      "agent_question_data": {
+        "next_question": "Tell me about your experience with backend development. What programming languages and frameworks have you worked with recently?",
+        "question_type": "technical",
+        "difficulty_level": 2,
+        "reasoning": "Since this is the first question with no previous answers in the transcript, I'm starting with an open-ended technical question to understand the candidate's background and experience level. This will help me gauge their expertise and determine the appropriate difficulty for subsequent questions."
+      },
+      "candidate_answer": "I built a microservices architecture using Node.js and Redis for caching."
+    },
+    {
+      "agent_question_data": {
+        "next_question": "You mentioned building a microservices architecture with Node.js and Redis caching. Can you walk me through how you handled inter-service communication in that architecture? What protocols or patterns did you use, and how did you handle failures between services?",
+        "question_type": "technical",
+        "difficulty_level": 4,
+        "reasoning": "Because the candidate mentioned microservices architecture with Node.js and Redis, I am probing deeper into their understanding of microservices communication patterns and fault tolerance, which are critical backend engineering concepts that separate junior from senior developers."
+      },
+      "candidate_answer": "I noticed high latency, so I indexed the DB and added a rate limiter."
+    },
+    {
+      "agent_question_data": {
+        "next_question": "I notice you mentioned indexing the database and adding a rate limiter to address latency, but that doesn't directly answer how you handled communication between your microservices. Let me ask more specifically - when Service A needed to call Service B, did you use REST APIs, message queues, or some other approach? And what happened when Service B was down or slow to respond?",
+        "question_type": "follow_up",
+        "difficulty_level": 2,
+        "reasoning": "The candidate's previous answer about indexing DB and rate limiting completely missed the core question about inter-service communication and failure handling in microservices. This suggests a knowledge gap in fundamental microservices concepts, so I'm asking a simpler, more direct follow-up to probe their understanding of basic service-to-service communication patterns and fault tolerance."
+      },
+      "candidate_answer": "For deployment, I wrote a Github Actions pipeline to push Docker images to AWS ECR."
+    }
+  ],
+  "score_report": {
+    "overall_score": 25,
+    "scores_per_axis": {
+      "communication": 20,
+      "technical": 30,
+      "problem_solving": 15,
+      "behavioral": 25,
+      "delivery": 35
+    },
+    "gap_vs_bar": {
+      "communication": -55,
+      "technical": -45,
+      "problem_solving": -60,
+      "behavioral": -45,
+      "delivery": -35
+    },
+    "weak_moment": {
+      "timestamp_approx": "Turn 2",
+      "quote": "I noticed high latency, so I indexed the DB and added a rate limiter.",
+      "why_it_hurt": "Completely ignored the specific question about inter-service communication protocols and failure handling, showing poor listening skills and inability to address technical concepts directly"
+    },
+    "strong_moment": {
+      "quote": "I built a microservices architecture using Node.js and Redis for caching.",
+      "why_it_helped": "Demonstrates familiarity with relevant backend technologies and architectural patterns"
+    },
+    "next_action": "Practice active listening exercises where you must repeat back the interviewer's question before answering to ensure you're addressing what was actually asked"
+  }
+}

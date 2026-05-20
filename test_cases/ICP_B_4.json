@@ -1,0 +1,72 @@
+{
+  "profile": {
+    "icp_type": "low_wage",
+    "language": "hi",
+    "target_role": "Sales Executive",
+    "round_type": "behavioral",
+    "company_tier": "startup"
+  },
+  "hiring_bar": {
+    "communication": 65,
+    "technical": 40,
+    "problem_solving": 50,
+    "behavioral": 70,
+    "delivery": 60
+  },
+  "turns": [
+    {
+      "agent_question_data": {
+        "next_question": "Namaste! Main aapka interview conductor hun. Pehle aap apne baare mein thoda batayiye - aapka naam kya hai aur sales mein aane ki kya wajah hai?",
+        "question_type": "behavioral",
+        "difficulty_level": 1,
+        "reasoning": "Since there are no previous answers in the transcript, I am starting with an introductory behavioral question to establish rapport and understand the candidate's motivation for entering sales, which is appropriate for a startup sales executive role."
+      },
+      "candidate_answer": "Maine kabhi sales nahi ki hai, par main mehnati hu."
+    },
+    {
+      "agent_question_data": {
+        "next_question": "Achha, koi baat nahi ki aapne pehle sales nahi ki hai. Lekin batayiye ki koi aisa waqt tha jab aapne kisi ko kuch convince kiya ho ya kisi ko samjhaya ho? Jaise ghar mein, dosto mein, ya kahi aur?",
+        "question_type": "behavioral",
+        "difficulty_level": 2,
+        "reasoning": "Because the candidate mentioned they have never done sales but are hardworking, I am asking about basic persuasion experiences from daily life to assess their natural sales aptitude and communication skills, which are fundamental for a sales role."
+      },
+      "candidate_answer": "Main logo se baat karne me thoda darta hu shuru me."
+    },
+    {
+      "agent_question_data": {
+        "next_question": "Dekho, shuru mein nervous hona bilkul normal baat hai. Lekin ek baat batao - koi aisa kaam hai jo tumhe karne mein accha lagta hai aur jisme tum confident feel karte ho? Jaise khelna, kuch banana, ya koi aur kaam?",
+        "question_type": "behavioral",
+        "difficulty_level": 2,
+        "reasoning": "Because the candidate admitted they are afraid of talking to people initially, which is a significant concern for a sales role, I am asking a simpler question to identify their confidence areas and strengths that could be leveraged to build their communication confidence gradually."
+      },
+      "candidate_answer": "Mujhe paiso ki zaroorat hai toh main 12 ghante bhi kaam karne ko taiyar hu."
+    }
+  ],
+  "score_report": {
+    "overall_score": 25,
+    "scores_per_axis": {
+      "communication": 20,
+      "technical": 30,
+      "problem_solving": 15,
+      "behavioral": 25,
+      "delivery": 35
+    },
+    "gap_vs_bar": {
+      "communication": -45,
+      "technical": -10,
+      "problem_solving": -35,
+      "behavioral": -45,
+      "delivery": -25
+    },
+    "weak_moment": {
+      "timestamp_approx": "Turn 2",
+      "quote": "Main logo se baat karne me thoda darta hu shuru me.",
+      "why_it_hurt": "Directly admits fear of talking to people, which is fundamental to sales role"
+    },
+    "strong_moment": {
+      "quote": "main 12 ghante bhi kaam karne ko taiyar hu",
+      "why_it_helped": "Shows willingness to work hard and commitment to putting in effort"
+    },
+    "next_action": "Practice basic conversation starters and role-play simple customer interactions to build confidence in speaking with people"
+  }
+}
