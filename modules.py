@@ -3,6 +3,81 @@ import os
 import requests
 from typing import List, Dict, Any
 
+def _call_llm_with_fallback(prompt: str, temperature: float = 0.7, max_tokens: int = 1500) -> str:
+    """
+    Calls LLM with fallback mechanism.
+    1. Groq (llama3-70b-8192)
+    2. Google Gemini (gemini-1.5-flash via Google API)
+    3. OpenRouter (anthropic/claude-3-haiku)
+    """
+    groq_api_key = os.environ.get("GROQ_API_KEY")
+    google_api_key = os.environ.get("GOOGLE_API_KEY")
+    or_api_key = os.environ.get("OPENROUTER_API_KEY")
+
+    # 1. Try Groq
+    if groq_api_key:
+        try:
+            response = requests.post(
+                url="https://api.groq.com/openai/v1/chat/completions",
+                headers={"Authorization": f"Bearer {groq_api_key}"},
+                json={
+                    "model": "llama3-70b-8192",
+                    "messages": [{"role": "user", "content": prompt}],
+                    "temperature": temperature,
+                    "max_tokens": max_tokens
+                },
+                timeout=30
+            )
+            response.raise_for_status()
+            return response.json()["choices"][0]["message"]["content"].strip()
+        except Exception as e:
+            print(f"Groq failed: {e}. Falling back to Google.")
+    
+    # 2. Try Google
+    if google_api_key:
+        try:
+            response = requests.post(
+                url=f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={google_api_key}",
+                headers={"Content-Type": "application/json"},
+                json={
+                    "contents": [{"parts": [{"text": prompt}]}],
+                    "generationConfig": {
+                        "temperature": temperature,
+                        "maxOutputTokens": max_tokens
+                    }
+                },
+                timeout=30
+            )
+            response.raise_for_status()
+            return response.json()["candidates"][0]["content"]["parts"][0]["text"].strip()
+        except Exception as e:
+            print(f"Google failed: {e}. Falling back to OpenRouter.")
+
+    # 3. Try OpenRouter
+    if or_api_key:
+        try:
+            response = requests.post(
+                url="https://openrouter.ai/api/v1/chat/completions",
+                headers={
+                    "Authorization": f"Bearer {or_api_key}",
+                    "HTTP-Referer": "http://localhost:3000",
+                    "X-Title": "AI Engineering Challenge"
+                },
+                json={
+                    "model": "anthropic/claude-3-haiku",
+                    "messages": [{"role": "user", "content": prompt}],
+                    "temperature": temperature,
+                    "max_tokens": max_tokens
+                },
+                timeout=30
+            )
+            response.raise_for_status()
+            return response.json()["choices"][0]["message"]["content"].strip()
+        except Exception as e:
+            print(f"OpenRouter failed: {e}.")
+            
+    raise Exception("All API fallbacks failed or no API keys found.")
+
 class InterviewConductor:
     def __init__(self, api_key: str = None):
         self.api_key = api_key or os.environ.get("OPENROUTER_API_KEY")
@@ -10,7 +85,7 @@ class InterviewConductor:
         self.model = "claude-sonnet-4-20250514"
         
         # OpenRouter mapping for the required model string
-        self._or_model = "anthropic/claude-sonnet-4"
+        self._or_model = "anthropic/claude-3-haiku"
 
     def generate_next_question(
         self, 
@@ -58,23 +133,7 @@ Instructions:
 
 Output ONLY the raw JSON without any markdown formatting, backticks, or extra text. Do not wrap the JSON in ```json blocks.
 """
-        response = requests.post(
-            url="https://openrouter.ai/api/v1/chat/completions",
-            headers={
-                "Authorization": f"Bearer {self.api_key}",
-                "HTTP-Referer": "http://localhost:3000",
-                "X-Title": "AI Engineering Challenge"
-            },
-            json={
-                "model": self._or_model,
-                "messages": [{"role": "user", "content": prompt}],
-                "temperature": 0.7,
-                "max_tokens": 1500
-            }
-        )
-        
-        response.raise_for_status()
-        content = response.json()["choices"][0]["message"]["content"].strip()
+        content = _call_llm_with_fallback(prompt, temperature=0.7, max_tokens=1500)
         
         # Clean up in case the LLM returned markdown despite instructions
         if content.startswith("```json"):
@@ -98,7 +157,7 @@ class InterviewScorer:
         self.model = "claude-sonnet-4-20250514"
         
         # OpenRouter mapping for the required model string
-        self._or_model = "anthropic/claude-sonnet-4"
+        self._or_model = "anthropic/claude-3-haiku"
 
     def score_interview(
         self, 
@@ -165,23 +224,7 @@ Instructions:
 
 Output ONLY the raw JSON without any markdown formatting, backticks, or extra text. Do not wrap the JSON in ```json blocks.
 """
-        response = requests.post(
-            url="https://openrouter.ai/api/v1/chat/completions",
-            headers={
-                "Authorization": f"Bearer {self.api_key}",
-                "HTTP-Referer": "http://localhost:3000",
-                "X-Title": "AI Engineering Challenge"
-            },
-            json={
-                "model": self._or_model,
-                "messages": [{"role": "user", "content": prompt}],
-                "temperature": 0.3,
-                "max_tokens": 1500
-            }
-        )
-        
-        response.raise_for_status()
-        content = response.json()["choices"][0]["message"]["content"].strip()
+        content = _call_llm_with_fallback(prompt, temperature=0.3, max_tokens=1500)
         
         # Clean up in case the LLM returned markdown despite instructions
         if content.startswith("```json"):

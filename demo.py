@@ -1,5 +1,8 @@
 import json
 import os
+import sys
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
 from dotenv import load_dotenv
 from modules import InterviewConductor, InterviewScorer
 
@@ -15,11 +18,29 @@ icp_a = {
     "language": "en"
 }
 
+# New ICP-A Profile for Demo Video (Live Change Exercise)
+icp_a_new = {
+    "icp_type": "high_wage",
+    "target_role": "Frontend Developer",
+    "round_type": "technical",
+    "company_tier": "enterprise",
+    "language": "en"
+}
+
 icp_b = {
     "icp_type": "low_wage",
     "target_role": "Data entry executive",
     "round_type": "behavioral",
     "company_tier": "mid",
+    "language": "hi"
+}
+
+# New ICP-B Profile for Demo Video (Live Change Exercise)
+icp_b_new = {
+    "icp_type": "low_wage",
+    "target_role": "Retail Sales Assistant",
+    "round_type": "behavioral",
+    "company_tier": "startup",
     "language": "hi"
 }
 
@@ -30,10 +51,24 @@ mock_answers_a = [
     "I try to debug by adding print statements everywhere until I find the issue."
 ]
 
+# New Mock Answers for Frontend Enterprise role
+mock_answers_a_new = [
+    "I have built several React applications using Redux for state management, but I haven't worked much with complex micro-frontends.",
+    "When a component renders too slowly, I usually just ignore it unless the client complains.",
+    "I have used Jest for unit testing but I don't write tests for every single component because it takes too long."
+]
+
 mock_answers_b = [
     "Haan sir, maine pichle do saal delivery ka kaam kiya hai aur main logo se hamesha achhe se baat karta hu.",
     "Excel me bas thoda bahut data entry dekha hai, formulas ya zyada kuch nahi aata mujhe.",
     "Main naya kaam jaldi seekh lunga sir, mujhe bas ek chance chahiye apne parivaar ke liye."
+]
+
+# New Mock Answers for Retail Sales role
+mock_answers_b_new = [
+    "Sir maine kapde ki dukan pe thoda kaam kiya hai, customer ko saman dikhana aur pack karna aata hai.",
+    "Agar koi customer gussa hota tha toh main unhe paani offer karta tha aur shanti se unki baat sunta tha.",
+    "Computer chalana itna nahi aata sir, par sikh lunga agar aap sikhaenge."
 ]
 
 hiring_bar_a = {
@@ -42,6 +77,14 @@ hiring_bar_a = {
     "problem_solving": 75,
     "behavioral": 70,
     "delivery": 70
+}
+
+hiring_bar_a_new = {
+    "communication": 80,
+    "technical": 85,
+    "problem_solving": 80,
+    "behavioral": 75,
+    "delivery": 80
 }
 
 hiring_bar_b = {
@@ -108,8 +151,8 @@ if __name__ == "__main__":
     if not os.environ.get("OPENROUTER_API_KEY"):
         print("WARNING: OPENROUTER_API_KEY environment variable is not set. Please set it in your .env file or environment before running.")
     else:
-        # Run ICP-A (High wage, English)
-        run_demo(icp_a, mock_answers_a, hiring_bar_a, "Riya Sharma")
+        # Run NEW ICP-A (Frontend Developer, Enterprise, English)
+        run_demo(icp_a_new, mock_answers_a_new, hiring_bar_a_new, "Priya Sharma (Frontend)")
         
-        # Run ICP-B (Low wage, Hindi)
-        run_demo(icp_b, mock_answers_b, hiring_bar_b, "Arjun Yadav")
+        # Run NEW ICP-B (Retail Sales, Low wage, Hindi)
+        run_demo(icp_b_new, mock_answers_b_new, hiring_bar_b, "Raj Kumar (Retail)")

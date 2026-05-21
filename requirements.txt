@@ -2,3 +2,7 @@ anthropic>=0.25.0
 pypdf>=4.0.0
 requests
 python-dotenv
+SpeechRecognition
+pyttsx3
+sounddevice
+soundfile
