@@ -21,7 +21,7 @@ def _call_llm_with_fallback(prompt: str, temperature: float = 0.7, max_tokens: i
                 url="https://api.groq.com/openai/v1/chat/completions",
                 headers={"Authorization": f"Bearer {groq_api_key}"},
                 json={
-                    "model": "llama3-70b-8192",
+                    "model": "llama-3.3-70b-versatile",
                     "messages": [{"role": "user", "content": prompt}],
                     "temperature": temperature,
                     "max_tokens": max_tokens
@@ -37,7 +37,7 @@ def _call_llm_with_fallback(prompt: str, temperature: float = 0.7, max_tokens: i
     if google_api_key:
         try:
             response = requests.post(
-                url=f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={google_api_key}",
+                url=f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={google_api_key}",
                 headers={"Content-Type": "application/json"},
                 json={
                     "contents": [{"parts": [{"text": prompt}]}],
@@ -102,15 +102,17 @@ class InterviewConductor:
         prompt = f"""You are an expert AI Interview Conductor for a career upskilling platform. Your task is to conduct a live mock interview.
 You will generate the NEXT question for the candidate based on their profile and the previous questions and answers.
 
-Candidate Profile:
+<candidate_profile>
 - ICP Type: {icp_type}  (Context: 'high_wage' implies a professional/technical corporate role needing rigorous scenarios. 'low_wage' implies an entry-level or gig worker moving to stable salaried work, needing accessible language, confidence building, and practical scenarios without corporate jargon.)
 - Target Role: {target_role}
 - Round Type: {round_type}
 - Company Tier: {company_tier}
 - Language: {language}
+</candidate_profile>
 
-Previous QA Pairs (Transcript so far):
+<transcript>
 {json.dumps(previous_qa_pairs, indent=2, ensure_ascii=False)}
+</transcript>
 
 Instructions:
 1. ADAPTIVE LOGIC IS CRITICAL: You MUST explicitly respond to the candidate's last answer in the transcript. If they mentioned a specific tool, concept, or weakness, your next question MUST probe that specific thing. 
@@ -125,16 +127,23 @@ Instructions:
    - If 'en' (English), use natural spoken English.
 6. You MUST return ONLY a valid JSON object matching the exact schema below, with NO missing fields, NO extra hallucinated fields, and correct data types:
 {{
+  "thought_process": "<string: your step-by-step reasoning about the candidate's previous answer and what gap or strength needs to be probed next>",
   "next_question": "<string: the exact question text to be asked>",
   "question_type": "<string: exactly one of 'technical', 'behavioral', or 'follow_up'>",
   "difficulty_level": <integer: 1 to 5>,
-  "reasoning": "<string: explicit explanation of why this question was chosen based on the previous answer>"
+  "reasoning": "<string: brief explicit explanation of why this question was chosen based on the previous answer>"
 }}
 
-Output ONLY the raw JSON without any markdown formatting, backticks, or extra text. Do not wrap the JSON in ```json blocks.
+Output ONLY the raw JSON object without any markdown formatting, backticks, or extra text. Do not wrap the JSON in ```json blocks.
 """
         content = _call_llm_with_fallback(prompt, temperature=0.7, max_tokens=1500)
         
+        # Extract JSON object from the response using regex in case of prepended text
+        import re
+        match = re.search(r'\{.*\}', content, re.DOTALL)
+        if match:
+            content = match.group(0)
+            
         # Clean up in case the LLM returned markdown despite instructions
         if content.startswith("```json"):
             content = content[7:]
@@ -172,11 +181,16 @@ class InterviewScorer:
         """
         prompt = f"""You are an expert AI Interview Scorer for a career upskilling platform. Evaluate the candidate based on the provided interview transcript.
 
-Interview Details:
+<interview_details>
 - ICP Type: {icp_type} (Context: 'high_wage' implies corporate professional expectations. 'low_wage' implies entry-level/gig-worker moving to a stable salary - evaluate fairly based on this context, focusing on trainability, attitude, and basic skills rather than advanced corporate polish.)
 - Target Role: {target_role}
 - Round Type: {round_type}
-- Hiring Bar: {json.dumps(hiring_bar)} (These are the minimum scores required for each axis out of 100)
+</interview_details>
+
+<hiring_bar>
+{json.dumps(hiring_bar, indent=2)}
+(These are the minimum scores required for each axis out of 100)
+</hiring_bar>
 
 <transcript>
 {json.dumps(full_transcript, indent=2, ensure_ascii=False)}
@@ -195,6 +209,7 @@ Instructions:
 6. QUALITY FEEDBACK: The `why_it_hurt`, `why_it_helped`, and `next_action` fields must feel personal, specific, and real. Speak directly to the user (e.g., "When you said [X], it showed...", or "You did a great job explaining...").
 7. You MUST return ONLY a valid JSON object matching the exact schema below, with NO missing fields, NO extra hallucinated fields, and correct data types:
 {{
+  "thought_process": "<string: your step-by-step reasoning evaluating the transcript against the hiring bar before scoring>",
   "overall_score": <integer: 0 to 100>,
   "scores_per_axis": {{
     "communication": <integer: 0 to 100>,
@@ -222,10 +237,16 @@ Instructions:
   "next_action": "<string: 1 specific, highly actionable drill recommendation tailored to their ICP>"
 }}
 
-Output ONLY the raw JSON without any markdown formatting, backticks, or extra text. Do not wrap the JSON in ```json blocks.
+Output ONLY the raw JSON object without any markdown formatting, backticks, or extra text. Do not wrap the JSON in ```json blocks.
 """
         content = _call_llm_with_fallback(prompt, temperature=0.3, max_tokens=1500)
         
+        # Extract JSON object from the response using regex in case of prepended text
+        import re
+        match = re.search(r'\{.*\}', content, re.DOTALL)
+        if match:
+            content = match.group(0)
+            
         # Clean up in case the LLM returned markdown despite instructions
         if content.startswith("```json"):
             content = content[7:]

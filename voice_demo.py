@@ -12,17 +12,13 @@ from modules import InterviewConductor, InterviewScorer
 import pyttsx3
 import speech_recognition as sr
 import sounddevice as sd
-import soundfile as sf
+import numpy as np
 import queue
-import tempfile
+import io
+import wave
 
 # Load environment variables from .env file securely
 load_dotenv()
-
-# Initialize TTS engine
-engine = pyttsx3.init()
-# Optional: customize voice speed/properties here
-# engine.setProperty('rate', 150)
 
 # Initialize STT recognizer
 recognizer = sr.Recognizer()
@@ -46,31 +42,69 @@ hiring_bar_a_new = {
 
 def speak_text(text):
     print(f"\nAgent (Speaking): {text}")
+    engine = pyttsx3.init()
     engine.say(text)
     engine.runAndWait()
 
 def listen_to_candidate():
     print("\n[Microphone is ON - Please speak your answer...]")
-    print("[Press Ctrl+C when you are done speaking]")
+    print("[Speak now. Recording will stop automatically after 2 seconds of silence]")
     
+    sample_rate = 16000
+    channels = 1
     q = queue.Queue()
+    
     def callback(indata, frames, time, status):
         if status:
             pass # ignore status for now
         q.put(indata.copy())
     
-    temp_filename = tempfile.mktemp(suffix=".wav")
-    sample_rate = 16000
-    try:
-        with sf.SoundFile(temp_filename, mode='x', samplerate=sample_rate, channels=1, subtype='PCM_16') as file:
-            with sd.InputStream(samplerate=sample_rate, channels=1, callback=callback):
-                while True:
-                    file.write(q.get())
-    except KeyboardInterrupt:
-        print("\n[Processing speech...]")
+    audio_data = []
+    silence_threshold = 0.015  # Adjust if it's too sensitive or not enough
+    silence_duration = 0
+    max_silence = 2.0  # seconds of silence to stop
+    has_spoken = False
     
     try:
-        with sr.AudioFile(temp_filename) as source:
+        with sd.InputStream(samplerate=sample_rate, channels=channels, callback=callback):
+            while True:
+                data = q.get()
+                audio_data.append(data)
+                
+                # Check for silence using RMS
+                rms = np.sqrt(np.mean(data**2))
+                if rms > silence_threshold:
+                    has_spoken = True
+                    silence_duration = 0
+                elif has_spoken:
+                    silence_duration += len(data) / sample_rate
+                    if silence_duration > max_silence:
+                        break
+    except KeyboardInterrupt:
+        pass
+
+    print("\n[Processing speech...]")
+    
+    if not audio_data:
+        return ""
+
+    # Convert numpy array list to bytes
+    audio_np = np.concatenate(audio_data, axis=0)
+    # Convert to 16-bit PCM
+    audio_pcm = (audio_np * 32767).astype(np.int16)
+    
+    # Write to in-memory WAV file
+    wav_io = io.BytesIO()
+    with wave.open(wav_io, 'wb') as wf:
+        wf.setnchannels(channels)
+        wf.setsampwidth(2)
+        wf.setframerate(sample_rate)
+        wf.writeframes(audio_pcm.tobytes())
+    
+    wav_io.seek(0)
+    
+    try:
+        with sr.AudioFile(wav_io) as source:
             audio = recognizer.record(source)
         text = recognizer.recognize_google(audio)
         return text
@@ -80,9 +114,6 @@ def listen_to_candidate():
     except sr.RequestError as e:
         print(f"[Error: Could not request results from Google Speech Recognition service; {e}]")
         return ""
-    finally:
-        if os.path.exists(temp_filename):
-            os.remove(temp_filename)
 
 def run_voice_demo(icp_profile, hiring_bar, candidate_name="Candidate"):
     print(f"\n{'='*50}\nStarting Voice Demo for: {candidate_name} ({icp_profile['icp_type']})\n{'='*50}")
