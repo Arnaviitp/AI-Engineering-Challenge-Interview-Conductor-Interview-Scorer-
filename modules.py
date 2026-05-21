@@ -10,7 +10,7 @@ class InterviewConductor:
         self.model = "claude-sonnet-4-20250514"
         
         # OpenRouter mapping for the required model string
-        self._or_model = "anthropic/claude-3-haiku"
+        self._or_model = "anthropic/claude-sonnet-4"
 
     def generate_next_question(
         self, 
@@ -98,7 +98,7 @@ class InterviewScorer:
         self.model = "claude-sonnet-4-20250514"
         
         # OpenRouter mapping for the required model string
-        self._or_model = "anthropic/claude-3-haiku"
+        self._or_model = "anthropic/claude-sonnet-4"
 
     def score_interview(
         self, 

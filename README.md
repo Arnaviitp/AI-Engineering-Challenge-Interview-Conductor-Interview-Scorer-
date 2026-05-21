@@ -7,6 +7,8 @@ This repository contains the Proof of Concept (POC) for the AI Engineering Chall
 ### Project Structure
 - `modules.py`: Contains `InterviewConductor` and `InterviewScorer` classes defining the core logic and prompts for adaptive interviewing and exact-quote-based transcript scoring.
 - `demo.py`: A mini end-to-end demo script that runs both modules in succession for 3 turns on mock candidate profiles (one high-wage English SWE, and one low-wage Hindi CX associate).
+- `test_all.py`: An automated testing script that validates the JSON schema output of the Conductor and Scorer against all 10 inputs in the `test_cases/` folder.
+- `prompt_defense.md`: The 1-page prompt defense document explicitly defending prompt decisions, edge case handling, and predicting live input changes as per the grading rubric.
 
 ### Requirements
 - Python 3.8+
