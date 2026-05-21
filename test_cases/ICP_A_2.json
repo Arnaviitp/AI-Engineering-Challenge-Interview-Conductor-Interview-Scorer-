@@ -16,57 +16,57 @@
   "turns": [
     {
       "agent_question_data": {
-        "next_question": "Tell me about your background and what drew you to data science. What's been your most impactful project so far?",
-        "question_type": "behavioral",
-        "difficulty_level": 2,
-        "reasoning": "Since this is the start of the interview with no previous answers, I'm beginning with an open-ended question to understand the candidate's background, motivation, and experience level. This will help gauge their communication skills and provide context for follow-up technical questions based on their specific experience."
+        "next_question": "Can you walk me through a time when you used machine learning techniques to solve a complex business problem? Describe the specific algorithms and tools you leveraged, as well as the process you followed to arrive at the final solution.",
+        "question_type": "technical",
+        "difficulty_level": 4,
+        "reasoning": "Since the candidate is applying for a Data Scientist role at an enterprise company, I want to assess their technical skills and ability to apply machine learning to solve real-world business problems. This question probes their hands-on experience with machine learning workflows, algorithms, and tools, which is crucial for the target role. The high difficulty level reflects the rigor expected at the enterprise level."
       },
       "candidate_answer": "I just copy pandas code from StackOverflow mostly."
     },
     {
       "agent_question_data": {
-        "next_question": "I understand you're familiar with pandas from StackOverflow. Let me ask you something basic - if you have a pandas DataFrame with missing values, what are two different ways you could handle those missing values?",
+        "next_question": "I see you mentioned relying on StackOverflow code for your machine learning work. While leveraging existing resources can be helpful, can you tell me about a time when you had to develop a custom machine learning model from scratch to solve a complex business problem? What was the specific challenge you were trying to address, and how did you approach designing and implementing the model?",
         "question_type": "technical",
-        "difficulty_level": 2,
-        "reasoning": "Because the candidate answered that they 'just copy pandas code from StackOverflow mostly', this reveals a significant gap in foundational understanding and suggests they may lack proper data science fundamentals. I am asking a basic pandas question about handling missing values to assess if they have even elementary knowledge of data preprocessing, which is essential for any data science role."
+        "difficulty_level": 4,
+        "reasoning": "The candidate's previous answer indicated a reliance on pre-existing code rather than developing custom solutions, which is a potential weakness for a Data Scientist role. I am asking a more technically challenging question to probe their ability to design and implement original machine learning models, which is a core competency for the target Data Scientist role."
       },
       "candidate_answer": "I don't really understand how machine learning works under the hood, I just import sklearn."
     },
     {
       "agent_question_data": {
-        "next_question": "I see you mentioned using sklearn without understanding the underlying mechanics. Let's start with something fundamental - can you explain what supervised learning is and give me an example of when you might use it?",
+        "next_question": "Can you explain the key differences between supervised and unsupervised machine learning algorithms, and when you would choose to use each type of approach to solve a business problem?",
         "question_type": "technical",
-        "difficulty_level": 2,
-        "reasoning": "Because the candidate admitted they don't understand how machine learning works under the hood and just import sklearn, I am asking a very basic conceptual question about supervised learning to assess their foundational understanding of ML concepts before diving deeper into technical implementation details."
+        "difficulty_level": 4,
+        "reasoning": "Based on the candidate's previous responses indicating a lack of understanding of the underlying machine learning concepts and over-reliance on pre-built libraries, I'm asking a more technical question to assess their fundamental knowledge of machine learning approaches and when to apply them. This higher-level conceptual question will help determine if they have a strong grasp of the core machine learning principles or if they are mainly just using tools without deeper comprehension."
       },
       "candidate_answer": "When there's a bug, I restart the kernel until it runs."
     }
   ],
   "score_report": {
-    "overall_score": 5,
+    "overall_score": 25,
     "scores_per_axis": {
-      "communication": 10,
-      "technical": 5,
-      "problem_solving": 5,
-      "behavioral": 5,
-      "delivery": 5
+      "communication": 30,
+      "technical": 20,
+      "problem_solving": 25,
+      "behavioral": 20,
+      "delivery": 30
     },
     "gap_vs_bar": {
-      "communication": -60,
-      "technical": -75,
-      "problem_solving": -70,
-      "behavioral": -55,
-      "delivery": -55
+      "communication": -40,
+      "technical": -60,
+      "problem_solving": -50,
+      "behavioral": -40,
+      "delivery": -30
     },
     "weak_moment": {
-      "timestamp_approx": "Turn 3",
-      "quote": "When there's a bug, I restart the kernel until it runs.",
-      "why_it_hurt": "Shows complete lack of debugging skills and systematic problem-solving approach, relying on random trial instead of understanding"
+      "timestamp_approx": "Turn 2",
+      "quote": "I don't really understand how machine learning works under the hood, I just import sklearn.",
+      "why_it_hurt": "When you said you don't understand how machine learning works under the hood, it showed a lack of technical depth that is critical for a Data Scientist role. As a Data Scientist, you need to have a strong grasp of the fundamentals of machine learning to be able to design and implement custom models effectively."
     },
     "strong_moment": {
       "quote": "I just copy pandas code from StackOverflow mostly.",
-      "why_it_helped": "At least demonstrates honesty about current skill level, though this is minimal"
+      "why_it_helped": "You acknowledged that you rely on existing resources like StackOverflow, which shows a pragmatic approach to problem-solving. However, for a Data Scientist role, we're looking for candidates who can go beyond just copying code and can demonstrate a deeper understanding of the techniques and how to apply them to solve complex business problems."
     },
-    "next_action": "Focus on fundamental data science concepts starting with basic statistics and supervised vs unsupervised learning definitions"
+    "next_action": "I would recommend that you spend time learning the fundamentals of machine learning, including the differences between supervised and unsupervised algorithms, and how to design and implement custom models from scratch. This will be crucial for success in a Data Scientist role, where you'll need to be able to go beyond just using pre-built libraries and truly understand the underlying techniques."
   }
 }

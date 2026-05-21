@@ -16,57 +16,57 @@
   "turns": [
     {
       "agent_question_data": {
-        "next_question": "Namaste! Data entry के field में aapka experience kaisa hai? Kya aapne pehle kisi company mein data entry ka kaam kiya hai?",
-        "question_type": "behavioral",
-        "difficulty_level": 2,
-        "reasoning": "Since this is the first question with no previous transcript, I'm starting with an introductory behavioral question to understand the candidate's background and experience in data entry, which is appropriate for a low_wage candidate applying for a Data Entry role at an enterprise company."
+        "next_question": "आप डेटा एंट्री के काम में किन कठिनाइयों का सामना करते हैं? इन समस्याओं से कैसे निपटते हैं?",
+        "question_type": "follow_up",
+        "difficulty_level": 3,
+        "reasoning": "Since this is the first question in the interview, I am starting with a general follow-up question about the challenges the candidate faces in data entry work and how they handle them. This will give me a sense of the candidate's practical experience, problem-solving skills, and overall fit for the data entry role."
       },
       "candidate_answer": "Mujhe thoda bahut computer chalana aata hai."
     },
     {
       "agent_question_data": {
-        "next_question": "Achha, computer chalana aata hai matlab kya aapko MS Excel ya Google Sheets use karna aata hai? Data entry mein ye software bahut zaroori hote hain.",
-        "question_type": "technical",
+        "next_question": "आप कंप्यूटर चलाने में किन चुनौतियों का सामना करते हैं? कृपया उदाहरण देकर समझाएं।",
+        "question_type": "follow_up",
         "difficulty_level": 2,
-        "reasoning": "Because the candidate gave a very vague answer 'thoda bahut computer chalana aata hai' without mentioning specific skills or experience, I am asking about basic spreadsheet software (Excel/Google Sheets) to probe their actual technical competency level for data entry work, which requires knowledge of these fundamental tools."
+        "reasoning": "क्योंकि उम्मीदवार ने कहा कि उन्हें थोड़ा कंप्यूटर चलाना आता है, इस लिए मैं उनसे पूछ रहा हूं कि वे कंप्यूटर चलाने में किन चुनौतियों का सामना करते हैं और उनका कोई उदाहरण पूछ रहा हूं ताकि मैं उनकी वास्तविक कौशल और समस्याओं को समझ सकूं।"
       },
       "candidate_answer": "Excel me main copy paste kar leta hu par formulas nahi aate."
     },
     {
       "agent_question_data": {
-        "next_question": "Theek hai, copy paste toh aata hai aapko. Excel mein agar main aapko kahu ki ek column mein numbers hain aur dusre column mein bhi numbers hain, aur mujhe dono ko jodna hai - toh aap kaise karenge? Matlab A1 mein 10 hai aur B1 mein 20 hai, toh C1 mein 30 kaise laayenge?",
-        "question_type": "technical",
+        "next_question": "Excel में formulas use karne mein aapko kya takleef hoti hai? Main aapko ek simple formula sikhata hu, phir aap uska use karne ki koshish kijiye.",
+        "question_type": "follow_up",
         "difficulty_level": 2,
-        "reasoning": "Because the candidate said they can do copy-paste in Excel but don't know formulas, I am asking a very basic formula question (simple addition) to test if they have any foundational knowledge of Excel calculations, which is essential for data entry work"
+        "reasoning": "क्योंकि उम्मीदवार ने बताया कि वह Excel में फॉर्मूलों का उपयोग करने में कठिनाई महसूस करते हैं, इसलिए मैं उन्हें एक सरल फॉर्मूला सिखाकर उस पर अभ्यास करने के लिए कह रहा हूं ताकि उनकी इस कमजोरी को दूर किया जा सके।"
       },
       "candidate_answer": "Agar mujhe thodi training mile toh main jaldi seekh lunga."
     }
   ],
   "score_report": {
-    "overall_score": 25,
+    "overall_score": 55,
     "scores_per_axis": {
-      "communication": 40,
-      "technical": 20,
-      "problem_solving": 15,
-      "behavioral": 35,
-      "delivery": 30
+      "communication": 60,
+      "technical": 40,
+      "problem_solving": 55,
+      "behavioral": 60,
+      "delivery": 60
     },
     "gap_vs_bar": {
-      "communication": -20,
-      "technical": -30,
-      "problem_solving": -35,
-      "behavioral": -25,
-      "delivery": -30
+      "communication": 0,
+      "technical": -10,
+      "problem_solving": 5,
+      "behavioral": 0,
+      "delivery": 0
     },
     "weak_moment": {
-      "timestamp_approx": "Turn 3",
-      "quote": "Agar mujhe thodi training mile toh main jaldi seekh lunga.",
-      "why_it_hurt": "Avoided answering the direct technical question about basic Excel addition and deflected to training needs instead of demonstrating any problem-solving approach"
+      "timestamp_approx": "Turn 2",
+      "quote": "Excel me main copy paste kar leta hu par formulas nahi aate.",
+      "why_it_hurt": "When you said you can only copy-paste in Excel and don't know how to use formulas, it showed that you have limited technical skills for the data entry role. Being able to work with basic Excel formulas is an important requirement."
     },
     "strong_moment": {
-      "quote": "Excel me main copy paste kar leta hu par formulas nahi aate.",
-      "why_it_helped": "Honest about current skill level and clearly communicated what they can and cannot do"
+      "quote": "Agar mujhe thodi training mile toh main jaldi seekh lunga.",
+      "why_it_helped": "You did a great job explaining that with a little training, you would be able to quickly learn how to use Excel formulas. This shows that you are eager to learn and have the right attitude to upskill, which is very important for an entry-level data entry role."
     },
-    "next_action": "Practice basic Excel operations including simple formulas like SUM and addition using = sign with cell references"
+    "next_action": "I would recommend that you practice using basic Excel formulas like SUM, AVERAGE, and IF. There are many free online tutorials that can help you get comfortable with these. Once you feel more confident, we can schedule a follow-up interview to assess your progress."
   }
 }

@@ -16,57 +16,57 @@
   "turns": [
     {
       "agent_question_data": {
-        "next_question": "Namaste! Pehle toh aap apne baare mein thoda batayiye - aapka customer service ya kisi bhi tarah ke support work mein kya experience hai?",
+        "next_question": "आप अपने पिछले काम में किस प्रकार की समस्याओं का सामना करते थे? आप उन समस्याओं से कैसे निपटते थे?",
         "question_type": "behavioral",
-        "difficulty_level": 2,
-        "reasoning": "Since this is the first question with no previous answers in the transcript, I'm starting with an introductory behavioral question to understand the candidate's background and experience in customer service, which is essential for a Customer Support role assessment."
+        "difficulty_level": 3,
+        "reasoning": "Since the candidate is applying for a customer support role, it is important to understand how they have handled challenges and problems in their previous work experience. This question allows the candidate to showcase their problem-solving abilities and resilience, which are key skills for a customer support role."
       },
       "candidate_answer": "Sir, maine 2 saal call center me kaam kiya hai, mujhe pata hai customer ko shanti se kaise handle karna hai."
     },
     {
       "agent_question_data": {
-        "next_question": "Achha, call center mein 2 saal ka experience hai! Koi aisa time batayiye jab koi customer bahut gussa tha aur aapne unhe kaise sambhala? Kya kiya tha aapne us situation mein?",
+        "next_question": "आपने कहा कि आपने कॉल सेंटर में काम किया है। आपको किन प्रकार के ग्राहकों से सामना करना पड़ता था और आप उनके साथ कैसे व्यवहार करते थे?",
         "question_type": "behavioral",
         "difficulty_level": 3,
-        "reasoning": "Because the candidate mentioned they have 2 years of call center experience and know how to handle customers peacefully, I am asking for a specific STAR-based behavioral example to validate their claim about handling difficult customers and assess their actual problem-solving approach in real situations."
+        "reasoning": "Since the candidate mentioned their previous experience in a call center, I am asking a follow-up question to understand their customer service skills and approach in handling different types of customers. This will help assess their fit for the customer support role."
       },
       "candidate_answer": "Ek baar customer bahut gusse me tha delivery late hone ki wajah se, toh maine unse maafi maangi aur refund process kiya."
     },
     {
       "agent_question_data": {
-        "next_question": "Bahut achha! Refund process karna sahi decision tha. Ab mujhe detail mein batayiye - us customer ko gusse se shant karne ke liye aapne exactly kya words use kiye the? Aur refund approve karne se pehle kya aapko kisi senior se permission leni padi thi ya aap khud decide kar sakte the?",
+        "next_question": "आपने कहा कि आपने ग्राहक को रिफंड प्रक्रिया की। क्या आप और कौन से तरीकों का उपयोग करते थे ग्राहकों को संतुष्ट करने के लिए?",
         "question_type": "follow_up",
         "difficulty_level": 3,
-        "reasoning": "Because the candidate gave a brief but appropriate response about handling an angry customer with apology and refund, I am probing deeper into their specific communication skills and understanding of process/authority limits to assess their actual customer service capabilities and decision-making boundaries."
+        "reasoning": "The candidate mentioned handling a difficult customer situation by providing a refund, which shows a strength. To further probe their customer service skills, I am asking a follow-up question about other techniques they used to satisfy customers, which will test their problem-solving abilities in a customer-facing role."
       },
       "candidate_answer": "Main shift timings ko lekar bohot flexible hu, night shift bhi kar lunga."
     }
   ],
   "score_report": {
-    "overall_score": 35,
+    "overall_score": 55,
     "scores_per_axis": {
-      "communication": 40,
-      "technical": 35,
-      "problem_solving": 30,
-      "behavioral": 25,
-      "delivery": 45
+      "communication": 60,
+      "technical": 40,
+      "problem_solving": 50,
+      "behavioral": 60,
+      "delivery": 60
     },
     "gap_vs_bar": {
-      "communication": -20,
-      "technical": -5,
-      "problem_solving": -20,
-      "behavioral": -45,
-      "delivery": -15
+      "communication": 0,
+      "technical": 0,
+      "problem_solving": 0,
+      "behavioral": -10,
+      "delivery": 0
     },
     "weak_moment": {
       "timestamp_approx": "Turn 3",
       "quote": "Main shift timings ko lekar bohot flexible hu, night shift bhi kar lunga.",
-      "why_it_hurt": "Completely ignored the detailed follow-up question about handling angry customers and gave an irrelevant response about shift flexibility"
+      "why_it_hurt": "When you mentioned being flexible with shift timings, it didn't directly address how you would handle customer issues or solve problems, which is a key part of the customer support role."
     },
     "strong_moment": {
-      "quote": "maine 2 saal call center me kaam kiya hai, mujhe pata hai customer ko shanti se kaise handle karna hai",
-      "why_it_helped": "Demonstrated relevant experience and understanding of customer handling fundamentals"
+      "quote": "Ek baar customer bahut gusse me tha delivery late hone ki wajah se, toh maine unse maafi maangi aur refund process kiya.",
+      "why_it_helped": "You did a great job explaining how you handled an angry customer by apologizing and processing a refund. This shows your ability to de-escalate difficult situations and prioritize customer satisfaction."
     },
-    "next_action": "Practice active listening exercises and train on answering specific behavioral questions with STAR method structure"
+    "next_action": "For an entry-level customer support role, I would recommend practicing active listening and empathy-building techniques. Focus on understanding the customer's perspective and finding creative solutions to their problems, rather than just offering flexibility on your end."
   }
 }

@@ -16,57 +16,57 @@
   "turns": [
     {
       "agent_question_data": {
-        "next_question": "नमस्ते! आपका दिन कैसा जा रहा है? पहले बताइए कि आप डिलीवरी पार्टनर की जॉब क्यों करना चाहते हैं?",
+        "next_question": "आप किन चीज़ों पर ध्यान देते हैं जब आप किसी ग्राहक के घर पहुंचते हैं? आप उनकी सहायता कैसे करते हैं?",
         "question_type": "behavioral",
-        "difficulty_level": 1,
-        "reasoning": "Since this is the first question with no previous transcript, I'm starting with a warm, conversational opening in colloquial Hindi to make the candidate comfortable, followed by a basic motivation question appropriate for a screening round for a delivery partner role at a startup"
+        "difficulty_level": 3,
+        "reasoning": "Since this is an entry-level screening interview for a delivery partner role, I need to ask a practical, scenario-based question to understand how the candidate would handle interactions with customers in their day-to-day work. This question probes their customer service orientation and problem-solving skills, which are important for the Delivery Partner role."
       },
       "candidate_answer": "Mujhe map dekhna nahi aata theek se, baar baar rasta bhool jata hu."
     },
     {
       "agent_question_data": {
-        "next_question": "अरे कोई बात नहीं! GPS और मैप तो सीखने वाली चीज़ है। आपके पास कोई स्मार्टफोन है? Google Maps का इस्तेमाल किया है कभी?",
+        "next_question": "आप कैसे समझते हैं कि आप सही दिशा में जा रहे हैं? आप रास्ता कैसे खोजते हैं जब भटक जाते हैं?",
         "question_type": "follow_up",
-        "difficulty_level": 2,
-        "reasoning": "Because the candidate mentioned they don't know how to read maps well and get lost frequently, which is a critical skill gap for delivery work, I am asking about their smartphone and GPS usage to understand if they can learn digital navigation tools and assess their basic tech comfort level for this role."
+        "difficulty_level": 3,
+        "reasoning": "क्योंकि उम्मीदवार ने कहा कि वह मानचित्र देखने में सक्षम नहीं है और बार-बार रास्ता भूल जाता है, मैं उनसे पूछ रहा हूं कि वे कैसे समझते हैं कि वे सही दिशा में जा रहे हैं और गुम होने पर रास्ता कैसे खोजते हैं। यह उनकी दिशा-निर्देश कौशल और समस्या-समाधान क्षमता का परीक्षण करेगा जो एक डिलीवरी पार्टनर के लिए महत्वपूर्ण हैं।"
       },
       "candidate_answer": "Agar customer phone nahi uthata toh main parcel wapas le aata hu bina wait kiye."
     },
     {
       "agent_question_data": {
-        "next_question": "अरे भाई, ये तो गलत है! डिलीवरी का काम में धैर्य बहुत ज़रूरी है। अगर customer phone नहीं उठाए तो आप क्या करेंगे? कम से कम कितनी देर wait करना चाहिए?",
-        "question_type": "behavioral",
-        "difficulty_level": 2,
-        "reasoning": "Because the candidate answered that they would return the parcel immediately without waiting if customer doesn't pick up phone, I am asking this follow-up to test their understanding of proper delivery protocols and patience, which are critical for delivery partner role"
+        "next_question": "Aap apne phone ke saath kya karte hain jab aap ghar pahunchte hain? Aap apne phone ka upyog kaise karte hain apne kaam mein?",
+        "question_type": "follow_up",
+        "difficulty_level": 3,
+        "reasoning": "The candidate mentioned that they have trouble with navigation and often get lost, so I want to follow up on how they use technology like their phone to help them with their work as a delivery partner. This follow-up question will help assess their practical problem-solving skills and comfort with using technology to support their role."
       },
       "candidate_answer": "Main jaldi kaam chhod deta hu kyuki mujhe gussa jaldi aata hai."
     }
   ],
   "score_report": {
-    "overall_score": 15,
+    "overall_score": 35,
     "scores_per_axis": {
-      "communication": 25,
-      "technical": 10,
-      "problem_solving": 5,
-      "behavioral": 10,
-      "delivery": 15
+      "communication": 40,
+      "technical": 20,
+      "problem_solving": 30,
+      "behavioral": 40,
+      "delivery": 45
     },
     "gap_vs_bar": {
-      "communication": -25,
-      "technical": -20,
-      "problem_solving": -35,
-      "behavioral": -50,
-      "delivery": -35
+      "communication": -10,
+      "technical": -10,
+      "problem_solving": -10,
+      "behavioral": -20,
+      "delivery": -5
     },
     "weak_moment": {
-      "timestamp_approx": "Turn 3",
-      "quote": "Main jaldi kaam chhod deta hu kyuki mujhe gussa jaldi aata hai.",
-      "why_it_hurt": "Shows poor emotional control and tendency to quit jobs quickly, which are critical red flags for delivery work requiring patience and persistence"
+      "timestamp_approx": "Turn 1",
+      "quote": "Mujhe map dekhna nahi aata theek se, baar baar rasta bhool jata hu.",
+      "why_it_hurt": "When you said you have trouble reading maps and often get lost, it shows that you may struggle with navigation and spatial awareness, which are crucial for a delivery driver role."
     },
     "strong_moment": {
-      "quote": "Mujhe map dekhna nahi aata theek se, baar baar rasta bhool jata hu.",
-      "why_it_helped": "Shows honesty about limitations, though this is still concerning for a delivery role"
+      "quote": "Agar customer phone nahi uthata toh main parcel wapas le aata hu bina wait kiye.",
+      "why_it_helped": "You mentioned that if the customer doesn't answer the phone, you would return the parcel without waiting, which shows a good understanding of customer service and delivery protocols."
     },
-    "next_action": "Conduct anger management and patience assessment before proceeding further in the hiring process"
+    "next_action": "For an entry-level delivery driver role, I would recommend practicing map reading and navigation skills, as well as working on your patience and conflict resolution when dealing with unresponsive customers. Taking a training course on customer service and delivery best practices would also be very helpful."
   }
 }

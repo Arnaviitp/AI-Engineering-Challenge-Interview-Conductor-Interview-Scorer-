@@ -16,57 +16,57 @@
   "turns": [
     {
       "agent_question_data": {
-        "next_question": "Can you walk me through how you would set up a CI/CD pipeline for a web application from scratch? What tools would you choose and why?",
+        "next_question": "Can you walk me through the process of setting up and configuring a Kubernetes cluster from scratch? What are the key steps and components involved?",
         "question_type": "technical",
-        "difficulty_level": 3,
-        "reasoning": "Since this is the first question with no previous answers, I'm starting with a foundational DevOps question that covers core concepts like CI/CD pipeline design. This allows me to assess their practical knowledge of DevOps tools and their ability to architect solutions, which is crucial for a startup environment where they'll need to make independent technical decisions."
+        "difficulty_level": 4,
+        "reasoning": "Since the candidate's profile indicates they are interviewing for a DevOps Engineer role at a startup, I will ask a more advanced technical question about Kubernetes, which is a critical tool for DevOps. This will test their depth of knowledge on a core DevOps technology."
       },
       "candidate_answer": "I know Linux commands very well and can manage servers."
     },
     {
       "agent_question_data": {
-        "next_question": "I notice you mentioned Linux commands and server management, but my question was specifically about CI/CD pipelines. Let me ask more directly - have you worked with any CI/CD tools like Jenkins, GitLab CI, or GitHub Actions? If so, can you explain what a CI/CD pipeline actually does?",
-        "question_type": "follow_up",
-        "difficulty_level": 2,
-        "reasoning": "Because the candidate completely avoided answering the CI/CD pipeline question and instead gave a vague response about Linux commands, I need to probe whether they actually understand what CI/CD means. Their answer suggests a significant knowledge gap in this core DevOps concept, so I'm asking a simpler, more direct question to assess their basic understanding before moving forward."
+        "next_question": "You mentioned having strong Linux skills. Can you walk me through a specific scenario where you had to troubleshoot a complex issue on a Linux production server? How did you approach the problem and what were the key steps you took to resolve it?",
+        "question_type": "technical",
+        "difficulty_level": 4,
+        "reasoning": "Since the candidate claimed to have strong Linux skills, I want to probe their troubleshooting abilities on a specific real-world scenario. This will help assess their hands-on technical competence in a production environment, which is crucial for a DevOps Engineer role at a startup."
       },
       "candidate_answer": "I have never used Kubernetes, I think it's too complicated for startups."
     },
     {
       "agent_question_data": {
-        "next_question": "I notice you mentioned Kubernetes being too complicated for startups, but I haven't asked about Kubernetes yet. Let me step back to basics - can you tell me what CI/CD stands for and describe in simple terms what happens when a developer pushes code to a repository in a basic automated deployment setup?",
-        "question_type": "technical",
-        "difficulty_level": 2,
-        "reasoning": "The candidate has avoided answering two direct CI/CD questions and brought up Kubernetes unprompted, suggesting they may not understand the fundamental concepts. I need to test their basic understanding of CI/CD terminology and concepts before proceeding further, as they seem to be deflecting rather than addressing the core topic."
+        "next_question": "You mentioned that you've never used Kubernetes before. Can you share your thoughts on why you think it might be too complicated for a startup? What concerns do you have about adopting Kubernetes in a smaller organization?",
+        "question_type": "follow_up",
+        "difficulty_level": 3,
+        "reasoning": "The candidate expressed hesitation about using Kubernetes, stating that it is 'too complicated for startups'. To better understand their perspective and probe this gap, I am asking a follow-up question to get them to elaborate on their concerns about Kubernetes adoption in a startup environment."
       },
       "candidate_answer": "I usually manually SSH into instances to deploy updates."
     }
   ],
   "score_report": {
-    "overall_score": 15,
+    "overall_score": 50,
     "scores_per_axis": {
-      "communication": 20,
-      "technical": 10,
-      "problem_solving": 15,
-      "behavioral": 20,
-      "delivery": 10
+      "communication": 60,
+      "technical": 40,
+      "problem_solving": 50,
+      "behavioral": 55,
+      "delivery": 45
     },
     "gap_vs_bar": {
-      "communication": -55,
-      "technical": -70,
-      "problem_solving": -60,
-      "behavioral": -50,
-      "delivery": -60
+      "communication": -15,
+      "technical": -40,
+      "problem_solving": -25,
+      "behavioral": -15,
+      "delivery": -25
     },
     "weak_moment": {
       "timestamp_approx": "Turn 2",
       "quote": "I have never used Kubernetes, I think it's too complicated for startups.",
-      "why_it_hurt": "Completely ignored the CI/CD question and brought up an unrelated topic, showing poor listening skills and lack of technical understanding"
+      "why_it_hurt": "When you said you've never used Kubernetes and think it's too complicated for startups, it showed a lack of familiarity with modern DevOps tools and an unwillingness to learn new technologies, which is concerning for a DevOps Engineer role."
     },
     "strong_moment": {
       "quote": "I know Linux commands very well and can manage servers.",
-      "why_it_helped": "Demonstrated some basic technical knowledge relevant to DevOps, though not answering the specific question asked"
+      "why_it_helped": "You demonstrated some relevant technical skills around Linux server management, which is a good foundation for the DevOps Engineer role."
     },
-    "next_action": "Practice explaining basic DevOps concepts like CI/CD pipelines, starting with definitions and simple examples before moving to tool-specific implementations"
+    "next_action": "For a high_wage DevOps Engineer role, I would recommend you focus on learning Kubernetes and other container orchestration technologies. Completing an online course or tutorial on Kubernetes setup and configuration would be a great next step to build the required technical skills."
   }
 }

@@ -16,57 +16,57 @@
   "turns": [
     {
       "agent_question_data": {
-        "next_question": "Tell me about your experience with backend development. What programming languages and frameworks have you worked with recently?",
+        "next_question": "Can you describe your approach to designing a scalable and fault-tolerant backend architecture for a high-traffic web application? What key principles and technologies would you consider?",
         "question_type": "technical",
-        "difficulty_level": 2,
-        "reasoning": "Since this is the first question with no previous answers in the transcript, I'm starting with an open-ended technical question to understand the candidate's background and experience level. This will help me gauge their expertise and determine the appropriate difficulty for subsequent questions."
+        "difficulty_level": 4,
+        "reasoning": "Since this is a technical interview for a Backend Engineer role at a startup, I should ask a more advanced question that tests the candidate's ability to design robust and scalable backend systems. This question probes their knowledge of key architectural principles and technologies relevant for a high-traffic web application, which is a common challenge for backend engineers in a startup context."
       },
       "candidate_answer": "I built a microservices architecture using Node.js and Redis for caching."
     },
     {
       "agent_question_data": {
-        "next_question": "You mentioned building a microservices architecture with Node.js and Redis caching. Can you walk me through how you handled inter-service communication in that architecture? What protocols or patterns did you use, and how did you handle failures between services?",
+        "next_question": "Can you explain in more detail how you used Redis for caching in your microservices architecture? What were the specific caching patterns and strategies you implemented?",
         "question_type": "technical",
         "difficulty_level": 4,
-        "reasoning": "Because the candidate mentioned microservices architecture with Node.js and Redis, I am probing deeper into their understanding of microservices communication patterns and fault tolerance, which are critical backend engineering concepts that separate junior from senior developers."
+        "reasoning": "Since the candidate mentioned using Redis for caching in their previous answer, I want to probe deeper into their understanding and implementation of caching strategies within a microservices architecture. This will help assess their technical depth and problem-solving skills around a key aspect of scalable backend design."
       },
       "candidate_answer": "I noticed high latency, so I indexed the DB and added a rate limiter."
     },
     {
       "agent_question_data": {
-        "next_question": "I notice you mentioned indexing the database and adding a rate limiter to address latency, but that doesn't directly answer how you handled communication between your microservices. Let me ask more specifically - when Service A needed to call Service B, did you use REST APIs, message queues, or some other approach? And what happened when Service B was down or slow to respond?",
-        "question_type": "follow_up",
-        "difficulty_level": 2,
-        "reasoning": "The candidate's previous answer about indexing DB and rate limiting completely missed the core question about inter-service communication and failure handling in microservices. This suggests a knowledge gap in fundamental microservices concepts, so I'm asking a simpler, more direct follow-up to probe their understanding of basic service-to-service communication patterns and fault tolerance."
+        "next_question": "Can you explain in more detail the specific caching patterns and strategies you implemented using Redis? What were the key considerations and tradeoffs you had to balance?",
+        "question_type": "technical",
+        "difficulty_level": 4,
+        "reasoning": "The candidate mentioned using Redis for caching in their microservices architecture, but did not provide details on the specific caching patterns and strategies they implemented. To better understand their technical approach and decision-making process, I am asking them to elaborate on the caching implementation, including the key considerations and tradeoffs they had to balance."
       },
       "candidate_answer": "For deployment, I wrote a Github Actions pipeline to push Docker images to AWS ECR."
     }
   ],
   "score_report": {
-    "overall_score": 25,
+    "overall_score": 50,
     "scores_per_axis": {
-      "communication": 20,
-      "technical": 30,
-      "problem_solving": 15,
-      "behavioral": 25,
-      "delivery": 35
+      "communication": 60,
+      "technical": 40,
+      "problem_solving": 50,
+      "behavioral": 60,
+      "delivery": 40
     },
     "gap_vs_bar": {
-      "communication": -55,
-      "technical": -45,
-      "problem_solving": -60,
-      "behavioral": -45,
-      "delivery": -35
+      "communication": -15,
+      "technical": -35,
+      "problem_solving": -25,
+      "behavioral": -10,
+      "delivery": -30
     },
     "weak_moment": {
       "timestamp_approx": "Turn 2",
       "quote": "I noticed high latency, so I indexed the DB and added a rate limiter.",
-      "why_it_hurt": "Completely ignored the specific question about inter-service communication protocols and failure handling, showing poor listening skills and inability to address technical concepts directly"
+      "why_it_hurt": "When you mentioned adding a rate limiter without explaining the specific caching strategies you used, it showed a lack of technical depth in your approach to scaling a high-traffic backend."
     },
     "strong_moment": {
-      "quote": "I built a microservices architecture using Node.js and Redis for caching.",
-      "why_it_helped": "Demonstrates familiarity with relevant backend technologies and architectural patterns"
+      "quote": "For deployment, I wrote a Github Actions pipeline to push Docker images to AWS ECR.",
+      "why_it_helped": "You demonstrated some familiarity with modern DevOps practices like containerization and CI/CD, which is a good sign for a backend engineer role."
     },
-    "next_action": "Practice active listening exercises where you must repeat back the interviewer's question before answering to ensure you're addressing what was actually asked"
+    "next_action": "For a high-wage Backend Engineer role, I would recommend practicing more in-depth technical explanations, especially around caching strategies and tradeoffs. Focus on developing a stronger command of scalable backend architecture principles."
   }
 }

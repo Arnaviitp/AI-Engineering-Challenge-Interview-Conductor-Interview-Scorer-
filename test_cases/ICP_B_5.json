@@ -16,57 +16,57 @@
   "turns": [
     {
       "agent_question_data": {
-        "next_question": "Namaste! Aapka interview shuru karte hain. Pehle aap apne baare mein thoda batayiye - aapka naam, education aur kya experience hai office work mein?",
-        "question_type": "behavioral",
-        "difficulty_level": 1,
-        "reasoning": "Since this is the first question with no previous answers in the transcript, I'm starting with a basic introductory question to understand the candidate's background, education and any office experience they may have. This helps establish rapport and gives me baseline information to adapt future questions."
+        "next_question": "आप एक कार्यालय सहायक के रूप में अपने दिन में कौन-कौन से कार्य करते हैं? आप इन कार्यों को कैसे प्राथमिकता देते हैं और उन्हें कैसे प्रबंधित करते हैं?",
+        "question_type": "follow_up",
+        "difficulty_level": 3,
+        "reasoning": "Since this is a screening round for an Office Assistant role, I need to understand the candidate's day-to-day responsibilities and how they prioritize and manage their tasks. This follow-up question will provide more insight into their practical skills and approach to the role."
       },
       "candidate_answer": "Office ke chote mote kaam main sab kar leta hu, file sambhalna aur chai lana."
     },
     {
       "agent_question_data": {
-        "next_question": "Achha, aapne file sambhalne ka kaam kiya hai. Batayiye ki agar aapko 100 files arrange karni ho date ke hisaab se, toh aap kaise karenge? Koi system follow karte hain?",
-        "question_type": "technical",
-        "difficulty_level": 2,
-        "reasoning": "Because the candidate mentioned they can handle files and small office tasks, I am asking a specific follow-up about file organization to test their actual office administration skills and see if they have any systematic approach to basic office tasks."
+        "next_question": "अच्छा, फाइलों को संभालने और चाय लाने के अलावा, आप कार्यालय में और किन कार्यों को करते हैं? क्या आप किसी प्रकार के कंप्यूटर कार्य करते हैं, जैसे ईमेल भेजना या डाटा एंट्री?",
+        "question_type": "follow_up",
+        "difficulty_level": 3,
+        "reasoning": "The candidate mentioned handling files and getting tea, but did not provide details on other tasks they perform as an office assistant. To better understand their day-to-day responsibilities, I am asking a follow-up question to probe if they have any computer-based duties like email or data entry."
       },
       "candidate_answer": "English bilkul nahi aati mujhe, isliye problem hoti hai kabhi kabhi."
     },
     {
       "agent_question_data": {
-        "next_question": "Koi baat nahi, English nahi aati toh Hindi mein kaam kar sakte hain. Main aapko simple sawaal puchta hun - agar aapke paas koi important file hai aur boss ne kaha ki use safe jagah rakhna hai, toh aap kahan rakhenge aur kaise yaad rakhenge ki woh kahan hai?",
-        "question_type": "technical",
-        "difficulty_level": 2,
-        "reasoning": "Because the candidate mentioned they don't know English and have problems sometimes, I am asking a simpler, Hindi-focused question about basic file management to assess their core organizational skills without language barriers and see if they can handle basic office responsibilities."
+        "next_question": "कंप्यूटर पर काम करने में आपकी क्या दिक्कतें हैं? आप इस पर काम करने के लिए कोई नई चीजें सीखने के बारे में क्या सोचते हैं?",
+        "question_type": "follow_up",
+        "difficulty_level": 3,
+        "reasoning": "क्योंकि उम्मीदवार ने बताया कि उन्हें अंग्रेजी नहीं आती और इससे कंप्यूटर कार्य करने में समस्या होती है, इस प्रश्न का उद्देश्य उनकी इस कमजोरी पर गहराई से जाँच करना और यह जानना है कि वे इस पर काम करने के लिए क्या कर सकते हैं।"
       },
       "candidate_answer": "Par main bohot imandaar hu, jo kaam doge main karunga lagan se."
     }
   ],
   "score_report": {
-    "overall_score": 25,
+    "overall_score": 55,
     "scores_per_axis": {
-      "communication": 20,
-      "technical": 15,
-      "problem_solving": 10,
-      "behavioral": 65,
-      "delivery": 15
+      "communication": 50,
+      "technical": 30,
+      "problem_solving": 50,
+      "behavioral": 80,
+      "delivery": 65
     },
     "gap_vs_bar": {
-      "communication": -35,
-      "technical": -25,
-      "problem_solving": -40,
-      "behavioral": -10,
-      "delivery": -45
+      "communication": -5,
+      "technical": -10,
+      "problem_solving": 0,
+      "behavioral": 5,
+      "delivery": 5
     },
     "weak_moment": {
       "timestamp_approx": "Turn 2",
       "quote": "English bilkul nahi aati mujhe, isliye problem hoti hai kabhi kabhi.",
-      "why_it_hurt": "Completely avoided answering the file organization question and focused on language barrier instead of demonstrating problem-solving ability"
+      "why_it_hurt": "When you said you don't know English at all, it showed that you may struggle with some basic office tasks like sending emails or working with digital tools. As an office assistant, having some English proficiency is important."
     },
     "strong_moment": {
-      "quote": "main bohot imandaar hu, jo kaam doge main karunga lagan se",
-      "why_it_helped": "Shows honesty, integrity and willingness to work hard with dedication"
+      "quote": "Par main bohot imandaar hu, jo kaam doge main karunga lagan se.",
+      "why_it_helped": "You showed a great attitude and willingness to work hard, which is very important for an entry-level office assistant role. Your eagerness to take on any tasks assigned to you is a positive sign."
     },
-    "next_action": "Practice answering basic office task questions directly without deflecting to unrelated topics"
+    "next_action": "I would recommend enrolling in a basic English language course to improve your communication skills. This will help you better understand and respond to emails, work with digital tools, and interact with colleagues. With some language training, you can quickly become an effective office assistant."
   }
 }

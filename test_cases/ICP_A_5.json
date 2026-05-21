@@ -16,57 +16,57 @@
   "turns": [
     {
       "agent_question_data": {
-        "next_question": "Tell me about yourself and what drew you to software engineering at a company like this.",
-        "question_type": "behavioral",
-        "difficulty_level": 2,
-        "reasoning": "Since this is the first question with no previous transcript, I'm starting with a standard opening question that allows the candidate to introduce themselves while gauging their communication skills and motivation for the role at a FAANG company. This sets the foundation for follow-up questions based on their background and interests."
+        "next_question": "Can you walk me through the process you would use to design and implement a RESTful API for a web application? Specifically, how would you handle authentication, authorization, and data validation?",
+        "question_type": "technical",
+        "difficulty_level": 4,
+        "reasoning": "Since this is a screening round for a FAANG software engineering role, I want to assess the candidate's technical depth and problem-solving skills. The question on designing a RESTful API covers core software engineering concepts that are crucial for the target role. By asking them to address authentication, authorization, and data validation, I can evaluate their understanding of secure API design and implementation."
       },
       "candidate_answer": "I am the best programmer in my college."
     },
     {
       "agent_question_data": {
-        "next_question": "That's quite a bold statement. Can you walk me through a specific project or problem you solved that demonstrates your programming abilities? What made it challenging and how did you approach it?",
-        "question_type": "behavioral",
+        "next_question": "You mentioned being the 'best programmer in your college'. Can you provide some specific examples of projects or accomplishments that demonstrate your technical skills and problem-solving abilities?",
+        "question_type": "follow_up",
         "difficulty_level": 3,
-        "reasoning": "Because the candidate made an extremely confident claim about being 'the best programmer' without providing any context or evidence, I need to probe deeper to understand what specific skills and experiences back up this assertion. This follow-up will reveal whether they can substantiate their claim with concrete examples and technical depth."
+        "reasoning": "The candidate's previous answer was vague and did not provide any concrete details about their programming skills or experience. To better assess their technical capabilities, I am asking for specific examples of projects or achievements that showcase their abilities as a programmer."
       },
       "candidate_answer": "System design is easy, you just put a load balancer everywhere."
     },
     {
       "agent_question_data": {
-        "next_question": "You mentioned that system design is easy and you just put load balancers everywhere. Can you explain when using a load balancer might actually be unnecessary or even counterproductive in a system design?",
+        "next_question": "You mentioned that 'system design is easy' and just involves 'putting a load balancer everywhere'. Can you walk me through a more detailed system design approach you would take to build a scalable, high-availability web application? Specifically, how would you design the different components and layers to handle increasing traffic and ensure reliability?",
         "question_type": "technical",
-        "difficulty_level": 3,
-        "reasoning": "Because the candidate gave an oversimplified answer about system design showing a lack of nuanced understanding, I am asking a follow-up question to test their deeper knowledge of when load balancers are appropriate versus inappropriate, which will reveal whether they truly understand system design principles or are making superficial statements."
+        "difficulty_level": 4,
+        "reasoning": "The candidate's previous answer showed a lack of depth in system design concepts beyond a simplistic load balancer approach. To probe their technical skills further, I am asking them to describe a more comprehensive system design process that considers scalability, reliability, and the different architectural components required for a production-ready web application."
       },
       "candidate_answer": "I don't write tests because my code rarely has bugs."
     }
   ],
   "score_report": {
-    "overall_score": 15,
+    "overall_score": 40,
     "scores_per_axis": {
-      "communication": 20,
-      "technical": 10,
-      "problem_solving": 10,
-      "behavioral": 15,
-      "delivery": 20
+      "communication": 40,
+      "technical": 30,
+      "problem_solving": 40,
+      "behavioral": 40,
+      "delivery": 50
     },
     "gap_vs_bar": {
-      "communication": -60,
-      "technical": -75,
-      "problem_solving": -70,
-      "behavioral": -65,
-      "delivery": -55
+      "communication": -40,
+      "technical": -55,
+      "problem_solving": -40,
+      "behavioral": -40,
+      "delivery": -25
     },
     "weak_moment": {
-      "timestamp_approx": "Turn 2",
-      "quote": "System design is easy, you just put a load balancer everywhere.",
-      "why_it_hurt": "Shows fundamental misunderstanding of system design principles and oversimplifies complex architectural decisions"
+      "timestamp_approx": "Turn 1",
+      "quote": "I am the best programmer in my college.",
+      "why_it_hurt": "When you claimed to be the 'best programmer in your college', it showed a lack of humility and self-awareness that is important for a software engineer role. Strong engineers are often more focused on continuous learning than claiming superiority."
     },
     "strong_moment": {
-      "quote": "I am the best programmer in my college.",
-      "why_it_helped": "Shows confidence, though lacks supporting evidence"
+      "quote": "I don't write tests because my code rarely has bugs.",
+      "why_it_helped": "Your statement about not writing tests because your code has few bugs demonstrates a concerning lack of understanding about the importance of testing and quality assurance in software development. This is a critical skill for a software engineer."
     },
-    "next_action": "Practice answering behavioral questions with specific examples using the STAR method to demonstrate actual accomplishments and technical depth"
+    "next_action": "For a high_wage software engineer role, I would recommend focusing on developing a deeper understanding of system design principles, testing methodologies, and demonstrating humility and a growth mindset. Consider taking an online course on software architecture and revisiting the basics of test-driven development."
   }
 }

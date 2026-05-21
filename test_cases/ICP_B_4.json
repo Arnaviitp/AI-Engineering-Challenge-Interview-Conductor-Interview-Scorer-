@@ -16,57 +16,57 @@
   "turns": [
     {
       "agent_question_data": {
-        "next_question": "Namaste! Main aapka interview conductor hun. Pehle aap apne baare mein thoda batayiye - aapka naam kya hai aur sales mein aane ki kya wajah hai?",
+        "next_question": "आप किस प्रकार के ग्राहकों से काम करने में अच्छे हैं? आप उनके साथ कैसे व्यवहार करते हैं?",
         "question_type": "behavioral",
-        "difficulty_level": 1,
-        "reasoning": "Since there are no previous answers in the transcript, I am starting with an introductory behavioral question to establish rapport and understand the candidate's motivation for entering sales, which is appropriate for a startup sales executive role."
+        "difficulty_level": 3,
+        "reasoning": "Since the candidate's profile indicates they are applying for an entry-level sales role, I will ask a behavioral question about their customer service approach. This will help assess their fit for the Sales Executive position at a startup company, where they will need to interact with a variety of customers in a personalized and confident manner."
       },
       "candidate_answer": "Maine kabhi sales nahi ki hai, par main mehnati hu."
     },
     {
       "agent_question_data": {
-        "next_question": "Achha, koi baat nahi ki aapne pehle sales nahi ki hai. Lekin batayiye ki koi aisa waqt tha jab aapne kisi ko kuch convince kiya ho ya kisi ko samjhaya ho? Jaise ghar mein, dosto mein, ya kahi aur?",
+        "next_question": "आप किन कौशलों और गुणों के कारण मानते हैं कि आप सेल्स एक्जीक्यूटिव के रोल के लिए उपयुक्त हैं? कृपया उदाहरण दें।",
         "question_type": "behavioral",
-        "difficulty_level": 2,
-        "reasoning": "Because the candidate mentioned they have never done sales but are hardworking, I am asking about basic persuasion experiences from daily life to assess their natural sales aptitude and communication skills, which are fundamental for a sales role."
+        "difficulty_level": 3,
+        "reasoning": "क्योंकि उम्मीदवार ने कहा कि उन्होंने कभी भी सेल्स नहीं की है, लेकिन वे मेहनती हैं, इस प्रश्न का उद्देश्य उन गुणों और कौशलों को जानना है जो उन्हें इस रोल के लिए उपयुक्त बनाते हैं। यह उम्मीदवार की स्वयं की मजबूत बातों पर ध्यान केंद्रित करने में मदद करेगा और उनकी आत्मविश्वास को बढ़ाएगा।"
       },
       "candidate_answer": "Main logo se baat karne me thoda darta hu shuru me."
     },
     {
       "agent_question_data": {
-        "next_question": "Dekho, shuru mein nervous hona bilkul normal baat hai. Lekin ek baat batao - koi aisa kaam hai jo tumhe karne mein accha lagta hai aur jisme tum confident feel karte ho? Jaise khelna, kuch banana, ya koi aur kaam?",
-        "question_type": "behavioral",
+        "next_question": "आप किन चीज़ों में मदद की ज़रूरत महसूस करते हैं ताकि आप बेहतर बिक्री कर सकें? मैं आपको इसमें कैसे मदद कर सकता हूं?",
+        "question_type": "follow_up",
         "difficulty_level": 2,
-        "reasoning": "Because the candidate admitted they are afraid of talking to people initially, which is a significant concern for a sales role, I am asking a simpler question to identify their confidence areas and strengths that could be leveraged to build their communication confidence gradually."
+        "reasoning": "Based on the candidate's previous answer that they feel a bit nervous while talking to people initially, I am asking a follow-up question to understand what specific areas they need help with in order to improve their sales skills. This will allow me to provide targeted guidance and build their confidence."
       },
       "candidate_answer": "Mujhe paiso ki zaroorat hai toh main 12 ghante bhi kaam karne ko taiyar hu."
     }
   ],
   "score_report": {
-    "overall_score": 25,
+    "overall_score": 40,
     "scores_per_axis": {
-      "communication": 20,
+      "communication": 50,
       "technical": 30,
-      "problem_solving": 15,
-      "behavioral": 25,
-      "delivery": 35
+      "problem_solving": 40,
+      "behavioral": 45,
+      "delivery": 45
     },
     "gap_vs_bar": {
-      "communication": -45,
+      "communication": -15,
       "technical": -10,
-      "problem_solving": -35,
-      "behavioral": -45,
-      "delivery": -25
+      "problem_solving": -10,
+      "behavioral": -25,
+      "delivery": -15
     },
     "weak_moment": {
       "timestamp_approx": "Turn 2",
       "quote": "Main logo se baat karne me thoda darta hu shuru me.",
-      "why_it_hurt": "Directly admits fear of talking to people, which is fundamental to sales role"
+      "why_it_hurt": "When you said you are a bit scared to talk to people at first, it shows that you may struggle with the core responsibilities of a Sales Executive role, which requires strong communication and comfort with customer interactions."
     },
     "strong_moment": {
-      "quote": "main 12 ghante bhi kaam karne ko taiyar hu",
-      "why_it_helped": "Shows willingness to work hard and commitment to putting in effort"
+      "quote": "Maine kabhi sales nahi ki hai, par main mehnati hu.",
+      "why_it_helped": "You acknowledged that you haven't done sales before, but highlighted that you are hardworking. This shows a good attitude and willingness to learn, which is a positive sign for an entry-level role."
     },
-    "next_action": "Practice basic conversation starters and role-play simple customer interactions to build confidence in speaking with people"
+    "next_action": "For a low_wage Sales Executive role, I would recommend focusing on developing your communication skills through role-playing exercises and observing experienced sales professionals. Building confidence in customer interactions will be key to your success."
   }
 }
