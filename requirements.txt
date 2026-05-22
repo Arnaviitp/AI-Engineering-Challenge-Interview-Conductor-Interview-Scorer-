@@ -6,3 +6,6 @@ SpeechRecognition
 pyttsx3
 sounddevice
 soundfile
+fastapi
+uvicorn
+pydantic

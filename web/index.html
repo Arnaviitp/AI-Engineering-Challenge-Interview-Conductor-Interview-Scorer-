@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Interview Conductor & Scorer</title>
+    <meta name="description" content="AI Engineering Challenge - An adaptive AI Interview Conductor and Scorer.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-effects">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <header class="navbar">
+        <div class="container nav-content">
+            <div class="logo">
+                <span class="logo-icon">🧠</span>
+                <span class="logo-text">AI Conductor</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#demo">Demo</a>
+                <a href="https://github.com/Arnaviitp/AI-Engineering-Challenge-Interview-Conductor-Interview-Scorer-" target="_blank" class="btn btn-outline">GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <div class="badge">Group 4 • Proof of Concept</div>
+                    <h1 class="hero-title">Adaptive <span class="text-gradient">Interview Conductor</span> & Precision Scorer.</h1>
+                    <p class="hero-subtitle">Experience dynamically tailored technical and behavioral interviews evaluated strictly on exact quotes and defined hiring bars.</p>
+                    <div class="hero-actions">
+                        <a href="#demo" class="btn btn-primary">Watch Demo</a>
+                        <a href="#features" class="btn btn-secondary">Explore Features</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <img src="assets/ai_interview_hero.png" alt="AI Brain Visualization" class="hero-image">
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features container">
+            <div class="section-header">
+                <h2>Two Powerful Modules</h2>
+                <p>Designed to conduct, adapt, and score with unparalleled accuracy.</p>
+            </div>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎙️</div>
+                    <h3>Module A: Interview Conductor</h3>
+                    <p>Runs the live mock interview by generating contextually appropriate questions. It dynamically adapts the next question based entirely on the candidate's previous answers.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Module B: Interview Scorer</h3>
+                    <p>Takes the full interview transcript after the session ends and produces a structured, rubric-based feedback report to evaluate the candidate's performance.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="demo" class="demo container">
+            <div class="section-header">
+                <h2>Interactive Voice Interview</h2>
+                <p>Select your profile, click start, and speak clearly into your microphone to simulate a real interview.</p>
+            </div>
+            
+            <div class="app-container glass-panel">
+                <!-- SETUP VIEW -->
+                <div id="setup-view" class="setup-view view-section">
+                    <h3>Select Candidate Profile</h3>
+                    <form id="setup-form" class="setup-form" style="max-width: 600px;">
+                        
+                        <div class="profile-cards" style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                            <label class="profile-card-radio" style="flex: 1; cursor: pointer;">
+                                <input type="radio" name="profile_choice" value="user_a" checked style="display: none;">
+                                <div class="profile-card-content">
+                                    <h4 style="color: var(--primary); margin-bottom: 0.5rem;">User A (high_wage)</h4>
+                                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem;"><strong>Target:</strong> Software Engineering</p>
+                                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem;"><strong>Language:</strong> English-first</p>
+                                    <p style="font-size: 0.85rem; color: #cbd5e1;">Final year engineering student. Needs technical scenarios, interview prep, structured roadmap.</p>
+                                </div>
+                            </label>
+
+                            <label class="profile-card-radio" style="flex: 1; cursor: pointer;">
+                                <input type="radio" name="profile_choice" value="user_b" style="display: none;">
+                                <div class="profile-card-content">
+                                    <h4 style="color: var(--secondary); margin-bottom: 0.5rem;">User B (low_wage)</h4>
+                                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem;"><strong>Target:</strong> Customer Support / Stable Role</p>
+                                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem;"><strong>Language:</strong> Hindi-first</p>
+                                    <p style="font-size: 0.85rem; color: #cbd5e1;">Gig worker (delivery, etc.). Needs practical scenarios, confidence building, accessible language.</p>
+                                </div>
+                            </label>
+                        </div>
+                        
+                        <div id="interview-details-container" style="margin-bottom: 2rem; text-align: left;">
+                            <h4 style="margin-bottom: 1rem; color: var(--text-main); font-size: 1.1rem;">Customize Interview Details</h4>
+                            <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
+                                <div class="form-group">
+                                    <label for="target-role">Target Role</label>
+                                    <input type="text" id="target-role" value="Software Engineering" required>
+                                </div>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                    <div class="form-group">
+                                        <label for="round-type">Round Type</label>
+                                        <select id="round-type">
+                                            <option value="technical">Technical</option>
+                                            <option value="behavioral">Behavioral</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="company-tier">Company Tier</label>
+                                        <select id="company-tier">
+                                            <option value="enterprise">Enterprise (FAANG)</option>
+                                            <option value="mid_market">Mid-Market</option>
+                                            <option value="startup">Startup</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <style>
+                            .profile-card-content {
+                                padding: 1.5rem;
+                                border: 2px solid var(--glass-border);
+                                border-radius: 12px;
+                                background: var(--bg-input);
+                                transition: all 0.3s;
+                                height: 100%;
+                                position: relative;
+                            }
+                            
+                            input[type="radio"]:checked + .profile-card-content {
+                                border-color: var(--primary);
+                                background: rgba(59, 130, 246, 0.15);
+                                box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+                                transform: translateY(-4px);
+                            }
+
+                            input[type="radio"]:checked + .profile-card-content::after {
+                                content: "✓ Selected";
+                                position: absolute;
+                                top: 1rem;
+                                right: 1rem;
+                                font-size: 0.75rem;
+                                font-weight: 800;
+                                color: var(--primary);
+                                background: rgba(59, 130, 246, 0.2);
+                                padding: 0.2rem 0.6rem;
+                                border-radius: 20px;
+                            }
+                        </style>
+
+                        <button type="submit" id="start-demo-btn" class="btn btn-primary w-full">Start Interview</button>
+                    </form>
+                </div>
+
+                <!-- INTERVIEW VIEW -->
+                <div id="interview-view" class="interview-view view-section" style="display: none;">
+                    <div class="chat-header">
+                        <div class="chat-title">
+                            <span class="pulse-dot"></span> Live Interview
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <button id="submit-answer-btn" class="btn btn-outline-danger" style="display: none; padding: 0.3rem 0.8rem; font-size: 0.8rem;">Stop & Submit</button>
+                            <div id="mic-status" class="mic-status">
+                                <span id="mic-dot" class="status-dot"></span>
+                                <span id="mic-text">Inactive</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-body" id="chat-output">
+                        <!-- Chat Bubbles -->
+                        <div class="chat-message system-message">
+                            <div class="bubble">Initializing interview...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SCORECARD VIEW -->
+                <div id="scorecard-view" class="scorecard-view view-section" style="display: none;">
+                    <div class="scorecard-header">
+                        <h3>Interview Score Report</h3>
+                        <div class="overall-score">
+                            <span class="score-label">Overall Score</span>
+                            <div class="score-circle">
+                                <span id="overall-score-val">--</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="score-grid" id="axes-container">
+                        <!-- Progress bars injected here -->
+                    </div>
+
+                    <div class="feedback-cards">
+                        <div class="feedback-card success">
+                            <h4>✨ Strong Moment</h4>
+                            <p class="quote" id="strong-quote">"..."</p>
+                            <p class="reasoning" id="strong-reason"></p>
+                        </div>
+                        <div class="feedback-card warning">
+                            <h4>📈 Area for Improvement</h4>
+                            <p class="quote" id="weak-quote">"..."</p>
+                            <p class="reasoning" id="weak-reason"></p>
+                        </div>
+                        <div class="feedback-card info">
+                            <h4>💡 Actionable Recommendation</h4>
+                            <p id="next-action"></p>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <button id="restart-btn" class="btn btn-secondary">Start New Interview</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 AI Engineering Challenge - Group 4</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
